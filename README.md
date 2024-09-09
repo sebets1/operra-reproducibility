@@ -2,41 +2,43 @@
 
 WebURL : [https://crsuzh.pages.uzh.ch/Workshop_Quarto_2024_UNIGE ](https://crsuzh.pages.uzh.ch/Workshop_Quarto_2024_UNIGE )
 
-
-
-
 [TOC]
 
-## Resources
-(...add refs here) 
 
 
-## Contents
-### Part 1 - Theory
-#### Dynamic reporting and literate programming 
+
+# Contents
+## Part 1 - Theory
+### Dynamic reporting and literate programming 
 -  What it is and why it matters for reproducibility 
 -  Quick of overview of R markdown, Quarto, Jupyter notebooks 
 -  Software glossary simplified: markup languages (markdown, latex, html) and document conversion (knitr, pandoc), executable code (software environment/containers, HTML widgets vs dashboards vs shiny apps, static vs dynamic sites),  IDEs (Rstudio, VS code)
 -  Git repositories (intro)
-#### Workflow and components
+### Workflow and components
 -  Content files: .QMD, .MD and .RMD files 
 -  Project file: _quarto.yml 
 -  Render action
 -  Teaser for advanced users: multiple outputs and parameterised reports 
 
-### Part 2 - Practical Examples
-#### Using Quarto to generate the 'Results' section of a manuscript 
+## Part 2 - Practical Examples
+### Using Quarto to generate the 'Results' section of a manuscript 
 -  Sharing in PDF vs HTML 
 -  Integrating with full manuscript: collaborative editing
-#### Using Quarto to display your data and analysis in a webpage
+### Using Quarto to display your data and analysis in a webpage
 -  Bring together multiple HTMLs with Quarto website
 -  Gitlab pages, Github pages 
 
+## Part 3 - Workflows for dissemination and publication
+### 'Persistent' identification: DOI (Zenodo and OSF)
+### Repository snapshot (Gitlab releases) 
+### Quarto websites + Gitlab pages 
 
-### Part 3 - Workflows for dissemination and publication
-#### 'Persistent' identification: DOI (Zenodo and OSF)
-#### Repository snapshot (Gitlab releases) 
-#### Quarto websites + Gitlab pages 
+
+________________
+
+## Resources
+(...add refs here) 
+
 
 #### 
 
