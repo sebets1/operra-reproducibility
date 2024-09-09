@@ -8,27 +8,27 @@ WebURL : [https://crsuzh.pages.uzh.ch/Workshop_Quarto_2024_UNIGE ](https://crsuz
 
 
 # Contents
-## Part 1 - Theory
-### Dynamic reporting and literate programming 
+### Part 1 - Theory
+#### Dynamic reporting and literate programming 
 -  What it is and why it matters for reproducibility 
 -  Quick of overview of R markdown, Quarto, Jupyter notebooks 
 -  Software glossary simplified: markup languages (markdown, latex, html) and document conversion (knitr, pandoc), executable code (software environment/containers, HTML widgets vs dashboards vs shiny apps, static vs dynamic sites),  IDEs (Rstudio, VS code)
 -  Git repositories (intro)
-### Workflow and components
+#### Workflow and components
 -  Content files: .QMD, .MD and .RMD files 
 -  Project file: _quarto.yml 
 -  Render action
 -  Teaser for advanced users: multiple outputs and parameterised reports 
 
-## Part 2 - Practical Examples
-### Using Quarto to generate the 'Results' section of a manuscript 
+### Part 2 - Practical Examples
+#### Using Quarto to generate the 'Results' section of a manuscript 
 -  Sharing in PDF vs HTML 
 -  Integrating with full manuscript: collaborative editing
-### Using Quarto to display your data and analysis in a webpage
+#### Using Quarto to display your data and analysis in a webpage
 -  Bring together multiple HTMLs with Quarto website
 -  Gitlab pages, Github pages 
 
-## Part 3 - Workflows for dissemination and publication
+### Part 3 - Workflows for dissemination and publication
 - 'Persistent' identification: DOI (Zenodo and OSF)
 -  Repository snapshots (Gitlab releases) 
 -  Quarto websites + Gitlab pages 
@@ -36,14 +36,13 @@ WebURL : [https://crsuzh.pages.uzh.ch/Workshop_Quarto_2024_UNIGE ](https://crsuz
 
 ________________
 
-## Resources
+# Resources
 (...add refs here) 
 
 
-#### 
+ 
 
-
-## Onboarding mini-survey
+# Onboarding mini-survey
 
 ### Which of the following concepts are your research group members more familiar with?
 *Multiple responses are possible*
