@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://crsuzh.pages.uzh.ch/AFFORD_website/index.html</loc>
-    <lastmod>2024-08-28T11:41:29.258Z</lastmod>
+    <lastmod>2024-09-11T09:25:58.289Z</lastmod>
   </url>
   <url>
-    <loc>https://crsuzh.pages.uzh.ch/AFFORD_website/contents/instructions/index.html</loc>
-    <lastmod>2024-08-28T07:55:50.834Z</lastmod>
+    <loc>https://crsuzh.pages.uzh.ch/AFFORD_website/contents/instructions/Markdown/index.html</loc>
+    <lastmod>2024-09-11T09:00:03.813Z</lastmod>
   </url>
   <url>
     <loc>https://crsuzh.pages.uzh.ch/AFFORD_website/contents/demo/index.html</loc>
     <lastmod>2024-08-28T07:55:44.493Z</lastmod>
   </url>
   <url>
+    <loc>https://crsuzh.pages.uzh.ch/AFFORD_website/contents/instructions/index.html</loc>
+    <lastmod>2024-09-11T09:25:15.105Z</lastmod>
+  </url>
+  <url>
     <loc>https://crsuzh.pages.uzh.ch/AFFORD_website/contents/slides/index.html</loc>
-    <lastmod>2024-08-28T11:43:02.480Z</lastmod>
+    <lastmod>2024-09-11T09:08:57.184Z</lastmod>
   </url>
 </urlset>

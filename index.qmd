@@ -31,10 +31,11 @@ author:
 listing:
   #categories: true
   type: grid
+  
   id: main-listing
-  fields: [title, image]
-  image-height: 210px
-  #grid-columns: 3
+  fields: [title]
+  #image-height: 210px
+  grid-columns: 4
   #grid-item-align: center
   #sort-ui: true
   #filter-ui: true

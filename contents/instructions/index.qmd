@@ -1,18 +1,12 @@
 ---
-#listing:
- # categories: true
-#  type: table
-#  id: main-listing
-#  fields: [title, subtitle]
-#  sort-ui: true
-#  filter-ui: true
-  #contents: *.qmd
-format:
-  html:
-    toc-depth: 4
+title: 'Instructions' 
+listing:
+  categories: true
+  type: table
+  table-hover: true
+  id: main-listing
+  fields: [title]
+  sort-ui: true
+  filter-ui: true
+
 ---
-
-# Instructions {.unnumbered}
-
-This is the instructions page 
-

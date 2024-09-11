@@ -5,12 +5,14 @@ website:
     title: Home
     page-navigation: true
     back-to-top-navigation: true
-    page-footer:
-        background: "#e8faf6"
+    page-footer:        
         left: |
           Made with [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org/) \
-          by [Gorka Fraga González](https://gorka.science/)  and Fabio Molo at the [Center for Reproducible Science](https://www.crs.uzh.ch/en.html), University of Zurich                  
-            
+          \ by the [Center for Reproducible Science](https://www.crs.uzh.ch/en.html)
+        
+        center: | 
+            ![](assets/Logo_CRS_col.svg){fig-alt="CRS" width=35px}
+        
         right: |
            Free under the [CC BY international license 4.0 ](https://creativecommons.org/licenses/by/4.0/). \
            \ Source code on [![](https://images.ctfassets.net/xz1dnu24egyd/1hnQd13UBU7n5V0RsJcbP3/769692e40a6d528e334b84f079c1f577/gitlab-logo-100.png){fig-alt="Git" width=65px}](https://gitlab.uzh.ch/crsuzh/Workshop_Quarto_2024_UNIGE) 
@@ -23,10 +25,9 @@ website:
        
     
     navbar:        
-        logo: assets/Logo_CRS_col.svg
-        background: '#1e5e50'  #light
+        #logo: assets/Logo_CRS_col.svg        
         collapse-below: lg
-                    
+        
         right:                  
           - text: "Instructions"            
             href: contents/instructions/index.qmd
@@ -40,7 +41,8 @@ format:
         grid:
           sidebar-width: 350px
         theme:
-            light: cosmo            
+          light: cosmos
+          dark: darkly
         highlight-style: a11y
         code-link: true
         toc: true

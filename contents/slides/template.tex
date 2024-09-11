@@ -1,0 +1,130 @@
+\documentclass[aspectratio=169,onlytextwidth]{beamer}
+
+\usetheme[english]{uzh} % Language options: german, english
+
+\usepackage{lipsum}
+
+\title{Title of the presentation}
+\subtitle{Subtitle of the presentation}
+\author{Author}
+\date{\today}
+\institute{Department of XYZ}
+\titlegraphic{img/uzh-lake.jpg}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame} {Itemize} {asdf}
+  Paragraph 1
+
+  Paragraph 2
+
+  \begin{itemize}
+    \item Item 1
+    \item Item 2
+    \begin{itemize}
+      \item Subitem 1
+      \item Subitem 2
+      \begin{itemize}
+        \item Subsubitem 1
+        \item Subsubitem 2
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+
+  Paragraph 3
+\end{frame}
+
+\begin{frame}{Enumerate}
+  Paragraph 1
+
+  Paragraph 2
+
+  \begin{enumerate}
+    \item Item 1
+    \item Item 2
+    \begin{enumerate}
+      \item Subitem 1
+      \item Subitem 2
+      \begin{enumerate}
+        \item Subsubitem 1
+        \item Subsubitem 2
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+
+  Paragraph 3
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Text}
+  \framesubtitle{With framebreaks}
+  \lipsum[1]
+
+  \lipsum[2]
+\end{frame}
+
+\begin{frame}{Content and picture}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}
+      \lipsum[3]
+    \end{column}
+    \begin{column}{0.28\textwidth}
+      \fillimage[alt={Picture of a staircase}]{\textwidth}{6.5cm}{img/uzh-staircase.jpg}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Picture and content}
+  \begin{columns}
+    \begin{column}[T]{0.48\textwidth}
+      \includegraphics[width=\textwidth,alt={}]{img/uzh-staircase.jpg}
+    \end{column}
+    \begin{column}[T]{0.5\textwidth}
+      \lipsum[2]
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Profile cards}
+  \begin{columns}
+    \begin{column}[T]{0.23\textwidth}
+      \imagecard{img/profile.pdf}{Hans Muster}{Professor}
+      \imagecard{img/profile.pdf}{Martha Muster}{Academic Associate}
+    \end{column}
+
+    \begin{column}[T]{0.23\textwidth}
+      \imagecard{img/profile.pdf}{Martha Muster}{Professor}
+      \imagecard{img/profile.pdf}{Hans Muster}{PhD Student}
+    \end{column}
+
+    \begin{column}[T]{0.23\textwidth}
+      \imagecard{img/profile.pdf}{Martha Muster}{PhD Student}
+      \imagecard{img/profile.pdf}{Hans Muster}{PhD Student}
+    \end{column}
+
+    \begin{column}[T]{0.23\textwidth}
+      \imagecard{img/profile.pdf}{Martha Muster}{PhD Student}
+      \imagecard{img/profile.pdf}{Hans Muster}{PhD Student}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\frame{\numberoverlay{0}}
+
+\begin{frame}
+  \vskip0.4cm
+  \fillimage{\textwidth}{\textheight}{img/uzh-city.jpg}
+\end{frame}
+
+\begin{frame}{Math}
+  \lipsum[1][1-3]
+  $$\sum_{i=1}^n i = \frac{n(n+1)}{2}$$
+
+  \lipsum[1][4-6]
+
+  Paragraph with inline math $\int_0^1 x^2 dx = \frac{1}{3}$ and more text.
+\end{frame}
+
+\end{document}

@@ -1,30 +1,30 @@
 ---
-title: "Dynamic reporting with Quarto"
+title: "Slides: Dynamic reporting"
 subtitle: A workshop by the Center for Reproducible Science
-date:  "November 07, 2024"
+#date:  "November 07, 2024"
 image:  Infographic_dynamic_reporting.jpg
 image-height: 10px
-title-slide-attributes:
-  data-background-image: narrow_alps.png
-  data-background-size: contain
-  data-background-position: bottom
-  #data-background-opacity: "0.9"
  # title-slide-style: pandoc
 author:
   - name: Fabio Molo
-    affiliation: 
-      - Center for Reproducible Science
+   # affiliation: Center for Reproducible Science
   - name: Gorka Fraga Gonzalez
-    affiliation: Center for Reproducible Science
+  #  affiliation: Center for Reproducible Science
 editor: visual
 preview-links: true
 format: 
-  revealjs: 
-    theme: simple
-    embed-resources: true 
+  revealjs:
+    menu: false
+    theme: custom-theme.scss
+    embed-resources: true
     progress: true
     slide-number: true
-    footer:   <a href="https://crsuzh.pages.uzh.ch/Workshop_Quarto_2024_UNIGE" target="_blank"> ⏎ home </a>
+    footer:   University of Zurich | Department of XYZ              <a href="https://crsuzh.pages.uzh.ch/Workshop_Quarto_2024_UNIGE" target="_blank"> ⏎ home </a>
+    title-slide-attributes:
+      data-background-image: narrow_alps.png
+      data-background-size: contain
+      data-background-position: bottom
+      data-background-opacity: "0.8"
 ---
 
 ## Quarto

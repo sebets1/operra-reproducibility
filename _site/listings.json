@@ -6,5 +6,11 @@
       "/contents/slides/index.html",
       "/contents/demo/index.html"
     ]
+  },
+  {
+    "listing": "/contents/instructions/index.html",
+    "items": [
+      "/contents/instructions/Markdown/index.html"
+    ]
   }
 ]
