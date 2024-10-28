@@ -13,7 +13,7 @@ Recent versions of RStudio have built-in support for ```Quarto```. Therefore, th
 
 To render documents in PDF format, ```Quarto``` needs to be able to access ```LaTeX```. If you do not already have ```LaTeX``` installed, you can install ```TinyTex``` by typing the following in your **terminal**:
 
-```
+```bash
 quarto install tinytex
 ```
 
