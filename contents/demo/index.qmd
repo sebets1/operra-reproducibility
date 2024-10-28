@@ -14,5 +14,5 @@ format:
 
 # Demo {.unnumbered}
 
-This is the demo page 
+This is the demo page  (... coming soon ...)
 
