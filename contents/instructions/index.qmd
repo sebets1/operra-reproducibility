@@ -11,7 +11,7 @@ To follow along in the hands-on part of the workshop, please install ```Quarto``
 
 Recent versions of RStudio have built-in support for ```Quarto```. Therefore, the simplest way to use it is to install recent versions of R (we recommend version 4.4) and RStudio by following the instructions at <https://posit.co/download/rstudio-desktop/>.
 
-To render documents in PDF format, ```Quarto``` needs to be able to access ```LaTeX```. If you do not already have ```LaTeX``` installed, you can install the light-weight ```TinyTex``` by typing the following in your **Terminal**:
+To render documents in PDF format, ```Quarto``` needs to be able to access ```LaTeX```. If you do not already have ```LaTeX``` installed, you can install the light-weight version ```TinyTex``` by typing the following in your **Terminal**:
 
 ```bash
 quarto install tinytex
@@ -35,7 +35,7 @@ If you do not want to install anything in your computer you can also use a cloud
 -  Once logged in, go to your workspace and click on `New Project` (top right corner), then choose `New RStudio Project`. 
 
 
-## Installing additional dependencies and packages
+## Installing additional R packages
 We will use the following additional R packages in the workshop. You can install them on the spot or beforehand by typing the following code in the **R console**: 
 ```r
 install.packages(c('quarto', 'dplyr', 'ggplot2'))
