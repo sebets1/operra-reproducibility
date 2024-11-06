@@ -32,7 +32,9 @@ website:
           - text: "Slides"            
             href: contents/slides/index.qmd
           - text: "Demo"            
-            href: contents/demo/index.qmd                 
+            href: contents/demo/index.qmd
+          - text: "Sharing"            
+            href: contents/slides_part3/index.qmd                 
                  
 format:
     html:         

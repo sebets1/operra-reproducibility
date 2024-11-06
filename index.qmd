@@ -44,7 +44,7 @@ listing:
     - contents/instructions/*.qmd
     - contents/slides/*.qmd
     - contents/demo/*.qmd
-    
+    - contents/slides_part3/*.qmd
 toc: false
 page-layout: full
 ---

@@ -2,7 +2,6 @@
 title: "Sharing and Publishing"
 subtitle: "Workflows for dynamically generated reports"
 #date: "November 07, 2024"
-image: "Infographic_dynamic_reporting.jpg"
 image-height: 10px
 author: "Fabio Molo and Gorka Fraga Gonzalez"
 editor: visual
@@ -11,59 +10,55 @@ format:
   revealjs:
     fig-cap-location: "margin"
     menu: false
-    logo: "uzh_logo_d_pos_web_assoc.jpg"
-    # theme: "custom-theme.scss"
+    logo: "images/uzh_logo_d_pos_web_assoc.jpg"
+    #theme: "custom-theme.scss"
     embed-resources: true
     progress: true
     slide-number: true
     footer: "Center for Reproducible Science | <a href='https://crsuzh.pages.uzh.ch/Workshop_Quarto_2024_UNIGE' target='_blank'> Home </a>"
     title-slide-attributes:
-      data-background-image: "narrow_alps.png"
       data-background-size: contain
       data-background-position: bottom
       data-background-opacity: "0.8"
 ---
 
-<style> .font-small {  font-size: 0.8em;} </style>
 
 ## Sharing scenarios
+<style> .font-small {  font-size: 0.8em;} </style>
 
 These are some frequent use cases:
 
-1. `Preliminary results` (temporary, internal reports)
-2. `Internal monitoring`(regularly updated reports)
-3. `Templates or documentation`
-4. `Dissemination` to broader audiences
-5. `Publication` (preprint, dataset, article, etc)
+1.  `Preliminary results` (temporary, internal reports)
+2.  `Internal monitoring`(regularly updated reports)
+3.  `Templates or documentation`
+4.  `Dissemination` to broader audiences
+5.  `Publication` (preprint, dataset, article, etc)
 
 ## Git version-controlled repositories
+
 -   [Git](https://git-scm.com/): free and open source distributed version control system
 -   Popular platforms: [Gitlab](https://gitlab.com/)(open) and [Github](https://github.com/)(Microsoft)
 -   There are `Gitlab instances` at many universities
 -   Meant for code and documents, not as data repositories
 -   Recommended for `all` sharing scenarios
 
+## Sharing with Gitlab pages
 
+-   [Quarto websites](https://quarto.org/docs/websites/) can easily assemble HTMLs in a website
+-   [Gitlab pages](https://docs.gitlab.com/ee/user/project/pages/) can host multiple `static` websites for free
+-   They can be `private` or `public`
+-   HTML interactivity: e.g., `dashboards`, `plotly`, `DataTables`
+-   Example use-cases: sharing results, technical documentation, templates, dissemination, etc
 
-## Sharing with Gitlab pages 
-
-- [Quarto websites](https://quarto.org/docs/websites/) can easily assemble HTMLs in a website
-- [Gitlab pages](https://docs.gitlab.com/ee/user/project/pages/) can host multiple `static` websites for free
-- They can be `private` or `public`
-- HTML interactivity: e.g., `dashboards`, `plotly`, `DataTables`
-- Example use-cases: sharing results, technical documentation, templates, dissemination, etc
-
----- 
-
+------------------------------------------------------------------------
 
 ## Persistent identification
 
-A persistent identifier (e.g., DOI) enable our reports to be `reused` and `found` in time. 
-It is required so our publications are citable  
+A persistent identifier (e.g., DOI) enable our reports to be `reused` and `found` in time. It is required so our publications are citable
 
 #### Where can I get a DOI ?
 
--   Data repositories like Zenodo or OSF (or domain-specific like Ebrains)
+-   Data repositories (e.g., Zenodo, OSF, Ebrains...)
 -   Journals and preprint platforms
 
 ------------------------------------------------------------------------
@@ -86,7 +81,7 @@ Robustness check for a Nat. Hum. Behav [initiative](https://www.nature.com/artic
 ##### [Gitlab Repository](https://gitlab.uzh.ch/crsuzh/nhb-replication)
 
 ::: {.column width="50%"}
-![](images/clipboard-4095247038.png){width="600" fig-align="left"}
+![](images/clipboard-4095247038.png){fig-align="left" width="491"}
 :::
 
 :::: {.column width="50%"}
@@ -100,9 +95,11 @@ Robustness check for a Nat. Hum. Behav [initiative](https://www.nature.com/artic
 ##### [Zenodo entry](https://zenodo.org/records/13748512)
 
 ::: {.column width="50%"}
-![](images/clipboard-118759402.png){width="500px" fig-align="left"}
+
+![](images/clipboard-664766473.png){width="500px" fig-align="left"}
 :::
 
 ::: {.column .font-small width="50%"}
+<br><br>
 A citable Zenodo entry with a DOI and the content of the repository release in a .zip file
 :::
