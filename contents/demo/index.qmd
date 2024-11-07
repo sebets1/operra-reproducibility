@@ -90,7 +90,7 @@ Let us first load all necessary libraries. [Copy the code below inside a 'code c
 #| output: false
 
 # Load libraries
-lapply(c('quarto', 'dplyr', 'ggplot2','kableExtra'), library, character.only = TRUE)
+lapply(c('dplyr', 'ggplot2','kableExtra'), library, character.only = TRUE)
 
 ```
 
