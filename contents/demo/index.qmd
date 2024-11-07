@@ -102,6 +102,7 @@ We can read the table into a variable named *tbl* with the following code :
 ```{r}
 
 url <- 'https://zenodo.org/records/5011201/files/anonymised_funding_output_data.csv?download=1'
+filename <- 'anonymised_funding_output_data.csv'
 tbl <- read.csv(url, row.names = 1)
 ```
 
