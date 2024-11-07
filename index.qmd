@@ -42,9 +42,9 @@ listing:
   sort: false  
   contents: 
     - contents/instructions/*.qmd
-    - contents/slides/*.qmd
+    - contents/slides_intro/*.qmd
     - contents/demo/*.qmd
-    - contents/slides_sharing/*.qmd
+    - contents/slides_outro/*.qmd
 toc: false
 page-layout: full
 ---
