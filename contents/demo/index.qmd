@@ -219,6 +219,7 @@ We start from @fig-original_plot, comparing the mean outcomes in two groups with
 
 ```{r}
 #| warning: false
+#| include: false
 library(tidyr)
 library(readr)
 library(ggbeeswarm)
@@ -226,6 +227,7 @@ library(ggbeeswarm)
 
 ```{r}
 #| label: load_data
+#| include: false
 vis_data <- read_csv("https://osf.io/download/rk3mp/")
 ```
 
