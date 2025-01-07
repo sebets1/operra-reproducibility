@@ -4,7 +4,7 @@ The website for this workshop is: <https://crsuzh.pages.uzh.ch/Workshop_Quarto_2
 
 
 # Citation 
-Cite this repoort as
+Cite this workshop as
 > Molo, F., & Fraga González, G. (2024, November 7). Workshop on Dynamic Reporting with Quarto at UNIGE. Zenodo. https://doi.org/10.5281/zenodo.14169003
 
 A BibTeX entry is given by
