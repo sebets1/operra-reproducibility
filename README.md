@@ -1,23 +1,22 @@
-# Workshop on Quarto November 07, 2024 at UNIGE
+# Workshop on reproducible and dynamic reporting with Quarto on May 15, 2025 at the University of Zurich
 
-The website for this workshop is: <https://crsuzh.pages.uzh.ch/Workshop_Quarto_2024_UNIGE>
+The website for this workshop is: <ADD URL>
 
 
 # Citation 
 Cite this workshop as
-> Molo, F., & Fraga González, G. (2024, November 7). Workshop on Dynamic Reporting with Quarto at UNIGE. Zenodo. https://doi.org/10.5281/zenodo.14169003
+> ADD CITATION
 
 A BibTeX entry is given by
 
 ```
-@misc{molo_2024_14169003,
-  author       = {Molo, Fabio and
-                  Fraga González, Gorka},
-  title        = {Workshop on Dynamic Reporting with Quarto at UNIGE},
-  month        = nov,
-  year         = 2024,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.14169003},
-  url          = {https://doi.org/10.5281/zenodo.14169003}
+@misc{,
+  author       = {},
+  title        = {Workshop on Dynamic Reporting with Quarto at UZH},
+  month        = May,
+  year         = 2025,
+  publisher    = {},
+  doi          = {},
+  url          = {}
 }
 ```
