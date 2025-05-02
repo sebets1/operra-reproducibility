@@ -1,5 +1,5 @@
 ---
-title: Dynamic reporting with Quarto 
+title: Reproducible and dynamic reporting with Quarto 
 subtitle: Workshop at UNIGE 
 sidebar: false
 date: last-modified
@@ -13,6 +13,9 @@ author:
     orcid: 0000-0001-9320-5854
 #    affiliations:
       #- name: Center for Reproducible Science, University of Zurich
+
+  - name: 'Samuel Pawel'
+    orcid: 0000-0003-2779-320X
 
 #about:
   #template: broadside
@@ -42,14 +45,19 @@ listing:
   sort: false  
   contents: 
     - ./instructions/*.qmd
-    - ./slides_intro/*.qmd
-    - ./demo/*.qmd
-    - ./slides_outro/*.qmd
+    # Temporarily hidden sections
+    # - ./slides_intro/*.qmd
+    # - ./demo/*.qmd
+    # - ./slides_outro/*.qmd
 toc: false
 page-layout: full
 ---
 
-Welcome to the workshop on Dynamic reporting with Quarto
+Welcome to the workshop on Reproducible and dynamic reporting with Quarto. 
+
+Date: 15 May 2025, 14:15 -- 17:00
+
+Location: University of Zurich, room RAA-E-30.
 
 
  

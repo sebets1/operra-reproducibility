@@ -28,12 +28,13 @@ website:
         right:                  
           - text: "Instructions"            
             href: ./instructions/index.qmd
-          - text: "Intro"            
-            href: ./slides_intro/index.qmd
-          - text: "Demo"            
-            href: ./demo/index.qmd
-          - text: "Outro"            
-            href: ./slides_outro/index.qmd                 
+          # Temporarily hidden sections
+          # - text: "Intro"            
+          #   href: ./slides_intro/index.qmd
+          # - text: "Demo"            
+          #   href: ./demo/index.qmd
+          # - text: "Outro"            
+          #   href: ./slides_outro/index.qmd                 
                  
 format:
     html:         
