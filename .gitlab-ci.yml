@@ -3,10 +3,10 @@ image: rocker/verse:4.4.1
 pages:
   stage: deploy
   before_script:    
-  # Install Quarto
-  - wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.5.57/quarto-1.5.57-linux-amd64.deb
-  - sudo dpkg -i quarto-1.5.57-linux-amd64.deb
-  - quarto check install  # Ensure Quarto is installed properly
+  # Install Quarto (not necessary, quarto should be included in rocker/verse)
+#  - wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.5.57/quarto-1.5.57-linux-amd64.deb
+#  - sudo dpkg -i quarto-1.5.57-linux-amd64.deb
+#  - quarto check install  # Ensure Quarto is installed properly
   - R -e "install.packages('remotes')"  # This package is used to be able to install packages defining their versions0    
   - R -e "remotes::install_version('kableExtra', version = '1.4.0')"  # This is used for rendering a table 
   - R -e "remotes::install_version('openxlsx',version = '4.2.5.2')" # This package is used for reading excel table
