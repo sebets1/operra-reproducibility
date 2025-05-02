@@ -10,7 +10,7 @@ pages:
   
   # Install renv and restore project dependencies
   - R -e "install.packages('renv')"
-  - R -e "renv::restore(lockfile = 'assets/renv.lock', confirm = FALSE)"
+  - R -e "renv::restore(confirm = FALSE)"
 
     
   script: 
