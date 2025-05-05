@@ -1,13 +1,5 @@
 ---
-title: Demo 
-#listing:
- # categories: true
-#  type: table
-#  id: main-listing
-#  fields: [title, subtitle]
-#  sort-ui: true
-#  filter-ui: true
-  #contents: *.qmd
+title: Demo
 format:
   html:
     toc-depth: 4
@@ -27,12 +19,10 @@ This demo requires R and Quarto Visit the [instructions](../instructions/index.q
 [Run the code below in the **R console** (it may take a couple of minutes)]{style="color: red;"}
 
 ``` r
- 
-# Install packages 
-install.packages(c('quarto', 'dplyr', 'ggplot2','kableExtra'))
+install.packages(c("dplyr", "ggplot2", "kableExtra"))
 ```
 
-## 2. Start a new Quarto document
+## 2. Create a new Quarto document
 
 ### Start a new QMD file
 
@@ -48,19 +38,19 @@ Edit the YAML header delimited by (`---`). Add information about `author`, `affi
 
 ``` yaml
 ---
-title: 'Title of the report or page'
-subtitle: 'Subtitle'
+title: "Title of the report or page"
+subtitle: "Subtitle"
 date: last-modified # Display the date of the last edit
 author: 
-  - name: 'Author 1 name'
+  - name: "Author 1 name"
     orcid: 1234-1234-1234-12345
     affiliations:
-      - name: 'Institute, Faculty names'
+      - name: "Institute, Faculty names"
 
-  - name: 'Author 1 name'
+  - name: "Author 1 name"
     orcid: 1234-1234-1234-12345
     affiliations:
-      - name: 'Institute, Faculty names'
+      - name: "Institute, Faculty names"
 format:
   html:
     toc: true
@@ -70,6 +60,10 @@ format:
 
 ## 3. Create the report content
 
+### Text chunks
+
+Quarto uses [Markdown syntax](https://quarto.org/docs/authoring/markdown-basics.html) to write and format text.
+
 ### Code chunks
 
 The following [code chunks](https:/quarto.org/docs/computations/r.html) have executable code to perform different actions on the data
@@ -77,82 +71,81 @@ The following [code chunks](https:/quarto.org/docs/computations/r.html) have exe
 ::: {#tip-chunks .callout-tip collapse="false"}
 #### Code execution options
 
-The code chunks are delimited by ```` ```{r} ```` (you can specify other languages like Python, Julia, ObservableJS). For each code you can add *execution options* to the code chunks with `#|`, for example `#| echo: false` will not display the code. In Rstudio you can see the options available if you type `#|` and then press the TAB ⭾ key on your keyboard . These options can be set globally for the entire document on the YAML header (under `execution:`).
+The code chunks are delimited by ```` ```{r} ```` (you can specify other languages like Python, Julia, ObservableJS). For each code you can add *execution options* to the code chunks with `#|`, for example `#| echo: false` will not display the code. In Rstudio you can see the options available if you type `#|` and then press the TAB ⭾ key on your keyboard . These options can be set globally for the entire document on the YAML header (under `execute:`).
 :::
 
 #### Load libraries
 
-Let us first load all necessary libraries. [Copy the code below inside a 'code chunk']{style="color: red;"}
+Let us first load all necessary libraries. [Copy the code below inside a "code chunk"]{style="color: red;"}
 
 ```{r}
 #| warning: false
 #| output: false
-
-# Load libraries
-lapply(c('dplyr', 'ggplot2','kableExtra'), library, character.only = TRUE)
-
+library("dplyr") # data wrangling
+library("ggplot2") # plotting
+library("kableExtra") # tables
 ```
 
 #### Read the data
 
-For this example we will use the data set 'Funding and Research Output Data' <https://zenodo.org/records/5011201>. The dataset is a table (CSV) with longitudinal data related to research outputs of researchers. Each researcher is identified with the variable `anonym_id` and there are multiple rows per researcher (*long format*).
+For this example we will use the data set "Vornamen neugeborener Mädchen und Knaben mit Wohnsitz in der Stadt Zürich" (<https://data.stadt-zuerich.ch/dataset/bev_vornamen_baby_od3700>). This data set contains the names of newborn children in the city of Zurich since the year 1993. The data was kindly made available to the public domain via a CC Zero license by Open Data Zürich.
 
-We can read the table into a variable named *tbl* with the following code :
+We will now import the data and rename the variables into English.
 
 ```{r}
-
-url <- 'https://zenodo.org/records/5011201/files/anonymised_funding_output_data.csv?download=1'
-filename <- 'anonymised_funding_output_data.csv'
-tbl <- read.csv(url, row.names = 1)
+url <- "https://data.stadt-zuerich.ch/dataset/bev_vornamen_baby_od3700/download/BEV370OD3700.csv"
+dat <- read.csv(url)
+datclean <- dat |>
+    rename(year = StichtagDatJahr,
+           name = Vorname,
+           sex = SexLang,
+           births = AnzGebuWir) |>
+    mutate(sex = ifelse(sex == "weiblich", "female", "male"))
 ```
 
-#### Summary of the data
+#### Summaries the data
 
-The data is longitudinal, we will summarize the cumulative sum of `n_articles_per_year` and `n_preprints_per_year` per researcher ( `anonym_id`).
+We will now compute the most common name by year and sex.
 
 ```{r}
-
-data_summary <- summarise(
-                group_by(tbl, anonym_id),
-                total_articles = sum(n_articles_per_year, na.rm = TRUE),
-                total_preprints = sum(n_preprints_per_year, na.rm = TRUE)
-           )
+summaries <- datclean |> 
+  group_by(sex, year) |>
+  top_n(n = 1, wt = births) |>
+  arrange(year)
 ```
 
-#### Table
+#### Create a table
 
-We can render a table summarizing the data. For example:
+We can render a table summarizing our results.
 
 ```{r}
-#| warning: true
-#kableExtra::kable(head(tbl),format = "markdown")
-kable(summary(data_summary)[,2:3], 
-      caption = paste0('Summary of table with ', nrow(data_summary), ' rows'),
-      booktabs =T) %>% kable_styling(latex_options=c("striped"))
-
+summaries |>
+  kable(caption = "Most common name of newborns in the city of Zurich by year and sex")
 ```
 
-#### Plot
+#### Plot the data
 
-We can add a code chunk a plot how the number of preprints developed over time. Note that we add some code execution options for a caption and a label that we can use to reference to this figure in the text.
+We can add a plot on the most common names between 2021 and 2023. Note that we add some code execution options for a caption and a label that we can use to cite this figure in the text.
 
 ```{r}
-#| label: fig-preprints
-#| fig-cap: "Number of preprints over the years."
-#| echo: fenced
-
-
-preprints <- summarise(
-  group_by(tbl, year),
-  n_preprints = sum(n_preprints_per_year)
-  )
-
-ggplot(preprints, aes(x= year, y = n_preprints)) + 
-  geom_point(shape=21, fill = "blue") +
+#| label: fig-names
+#| fig-cap: "Most common names of Zurich newborns in 2021-2023."
+#| message: false
+datclean |> 
+  filter(year > 2020) |>
+  group_by(sex, name) |>
+  summarise(births = sum(births)) |>
+  top_n(n = 10, wt = births) |>
+  ggplot(aes(x = reorder(name, births), y = births)) +
+  facet_wrap(~ sex, scales = "free") +
+  geom_bar(stat = "identity") +
+  labs(x = "Name", y = "Births", 
+       title = "") +
+  coord_flip() +
   theme_minimal()
 ```
 
-I can now refer to the [@fig-preprints] in the text using `[@fig-label]`.
+I can now refer to [@fig-names] in the text using `[@fig-label]`.
 
 ### Inline code
 
@@ -160,11 +153,11 @@ Now we can use this data_summary and [inline code](https://quarto.org/docs/compu
 
 [Use code snippets such as those below in your Markdown text to describe the data]{style="color: red;"}
 
-Total number of researchers: \``` r count(data_summary)` ``
+> In 2023, the most common male name was \``` r filter(summaries, year == 2023, sex == "male")$name` `` whereas the most common female name was \``` r filter(summaries, year == 2023, sex == "female")$name` ``.
 
-Maximum number of publications: \``` r max(data_summary$total_articles)` ``
+produces
 
-Median number of publications: \``` r median(data_summary$total_preprints)` ``
+> In 2023, the most common male name was `r filter(summaries, year == 2023, sex == "male")$name` whereas the most common female name was `r filter(summaries, year == 2023, sex == "female")$name`.
 
 ### References
 
@@ -174,14 +167,22 @@ You can refer to a file with the reference list in the YAML header. In this exam
 bibliography: references.bib
 ```
 
-Then use `[@authorDate]` to add a citation. For example, we recommend reading this manifesto for reproducible science [@munafo_manifesto_2017] or this nice easy-read entitled `cut with the tyranny of copy-pasting` [@perkel_cut_2022] (yes, it is about R Markdown). 
+Then use `[@authorDate]` to add a citation. For example, we recommend reading this manifesto for reproducible science [@munafo_manifesto_2017] or this nice easy-read entitled "cut with the tyranny of copy-pasting" [@perkel_cut_2022] (yes, it is about R Markdown).
 
-To get the best out of this functionality 
+To get the best out of this functionality
 
 -   [Connect your R studio project with a Zotero library](https://quarto.org/docs/visual-editor/technical.html#citations-from-zotero)
 
--   Use the Visual editor in R studio and go to insert>citation
+-   Use the Visual editor in R studio and go to insert\>citation
 
+### Reproducibility
+
+It is good practice to save details on software versions and computational environment when creating dynamic reports. A basic but effective step to achieve this is the `sessionInfo` command.
+
+```{r}
+#| fontsize: "small"
+sessionInfo()
+```
 
 ## 4. Render the report
 
@@ -201,21 +202,17 @@ Try to explore different options for code execution:
 -   [ ] Hide the code reading the table, show the rest
 -   [ ] **Challenge** render the report as both an HTML document and as PDF
 
-{{< pagebreak >}}
-
-
-
 # Demo II - Explore other examples
 
 The are many examples of dynamically generated reports online. Try exploring the links below.
 
 -   Example 1. Reproducible report in HTML using R Markdown (SNSF report: <https://data.snf.ch/stories/open-research-data-2023-en.html>)
 
--   Example 2. Reproducible report in pdf using Latex (robustness check analysis: <https://gitlab.uzh.ch/fabio.molo/nhb-replication>.)
+-   Example 2. Reproducible report in pdf using knitr (robustness check analysis: <https://gitlab.uzh.ch/fabio.molo/nhb-replication>.)
 
--   Example 3. Website with course materials: <https://github.com/avehtari/BDA_course_Aalto/tree/master>\
+-   Example 3. Website with course materials: <https://github.com/avehtari/BDA_course_Aalto/tree/master>
 
--   Example 4. Reproducible slides with Quarto: <https://github.com/kjhealy/flipbookr-quarto/tree/main?tab=readme-ov-file>.\
+-   Example 4. Reproducible slides with Quarto: <https://github.com/kjhealy/flipbookr-quarto/tree/main?tab=readme-ov-file>.
 
 Try to reflect about the following questions:
 
@@ -224,5 +221,3 @@ Try to reflect about the following questions:
 -   [ ] Can you access the output, rendered documents easily ?
 -   [ ] Do they use some advanced features for dynamic reporting or computational reproducibility?
 -   [ ] What would be the workflow to reproduce those reports?
-
-### references
