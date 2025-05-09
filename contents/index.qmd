@@ -22,10 +22,10 @@ listing:
   contents: 
     - ./instructions/*.qmd
     # Temporarily hidden sections
-    - ./slides_intro/*.qmd
-    - ./demo/*.qmd
+    # - ./slides_intro/*.qmd
+    # - ./demo/*.qmd
     # - ./slides_outro/*.qmd
-    - ./slides_advanced/*.qmd
+    # - ./slides_advanced/*.qmd
 toc: false
 page-layout: full
 ---
