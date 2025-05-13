@@ -41,11 +41,29 @@ bibliography: references.bib
 
 A (too) simple definition:
 
-::: incremental
--   the **same analysis**
--   of the **same data**
--   produces the **same results**
+[The **same analysis**]{.fragment} [of the **same data**]{.fragment} [produces the **same results**]{.fragment}
+
+
+:::: incremental
+
+::: fragment
+<br>
+Why does it matter?
+::: 
+
+::: fragment
+Because computational reproducibility
+::: 
+::: fragment
+-   is a marker for careful, rigorous work
+-   facilitates re-analysis
+-   facilitates re-use of code, methods and data
 :::
+
+::: fragment
+→ Makes research **more transparent, trustworthy and useful**
+:::
+::::
 
 ------------------------------------------------------------------------
 
@@ -54,9 +72,9 @@ A (too) simple definition:
 ![](img/samuel2024.png){fig-align="center" width="75%"}
 
 ::: incremental
--   Attempted to rerun **22,578 Jupyter notebooks** associated with 3,467 publications
+-   Attempted to rerun **22,578 Jupyter notebooks** associated with 3,467 publications from PubMed
 -   For 10,388 of these, all declared dependencies could be installed successfully
--   1,203 (5%) notebooks ran through without any errors
+-   1,203 notebooks ran through without any errors
 -   **879 notebooks (4%)** produced results identical to those reported in the original notebook
 :::
 
@@ -64,15 +82,15 @@ A (too) simple definition:
 
 ## Structure of this workshop
 
-1.  Introduction → What is dynamic reporting?
+1.  Introduction -- What is dynamic reporting?
 
-2.  Demonstration → How to use it?
+2.  Hands-on -- How can you use it?
 
-3.  Advanced workflows → What else is possible?
+3.  Demonstration -- What else is possible?
 
 ------------------------------------------------------------------------
 
-## Context and Terminology
+## Context and terminology
 
 <br>
 
@@ -140,21 +158,44 @@ A (too) simple definition:
 
 ------------------------------------------------------------------------
 
-## Every step counts!
+## Every step counts
 
-::::: incremental
-::: fragment
+:::::: {.columns align="center"}
+
+::: {.fragment}
+:::: {.columns align="center"}
+::: {.column width="75%"}
 Reproducible research is hard and may feel overwhelming
 :::
 
-::: fragment
+::: {.column width="25%"}
+![](img/homer-overwhelmed.jpg){height="60%"}
+:::
+::::
+:::
+
+::: {.fragment}
+:::: {.columns align="center"}
+::: {.column width="75%"}
 Do not despair! With every step...
 
+::: incremental
 -   you are already **one step ahead**
--   you **already improve** the quality of your research (and of your life)
+-   you **already improve** the quality of your research <br> (and of your life)
 -   you learn **broadly applicable technical skills**
 :::
-:::::
+:::
+
+::: {.column width="25%"}
+::: fragment
+![](img/homer-happy.jpg){height="60%"}
+:::
+:::
+::::
+:::
+
+::::::
+
 
 ------------------------------------------------------------------------
 
@@ -256,11 +297,25 @@ Do not despair! With every step...
 
 ## Quarto in RStudio
 
-![CC by [Desirée De Leon](https://github.com/dcossyleon)](img/rstudio-rmarkdown.png){fig-align="center" width="85%"}
+![](img/quarto-rstudio-example-html.jpg){fig-align="center" width="85%"}
+
 
 ------------------------------------------------------------------------
 
-## Where to start?
+## Quarto in RStudio: PDF output
+
+![](img/quarto-rstudio-example-pdf.png){fig-align="center" width="85%"}
+
+------------------------------------------------------------------------
+
+## Quarto in RStudio: MS Word output
+
+![](img/quarto-rstudio-example-word.png){fig-align="center" width="85%"}
+
+
+------------------------------------------------------------------------
+
+## Quarto -- where to start?
 
 1.  Install Quarto (<https://quarto.org/docs/get-started/>)
 
@@ -268,7 +323,7 @@ Do not despair! With every step...
 
 3.  Document your steps, read guides, ask for help
 
-4. Live a dynamic and reproducible life!
+4. Live a dynamic and reproducible life
 
 ------------------------------------------------------------------------
 
@@ -289,7 +344,7 @@ Do not despair! With every step...
 
 ::::: columns
 ::: {.column width="80%"}
--   **Early career** researchers section of the SwissRN
+-   **Early career** researchers section of the Swiss RN
 
 -   Goal 1: Connect young researchers interested in **reproducibility in Switzerland**
 
