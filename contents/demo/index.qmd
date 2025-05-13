@@ -186,6 +186,33 @@ datclean |>
 
 We can now refer to [@fig-names] in the text using `[@fig-label]`.
 
+### Another plot
+
+We can also plot the occurence of a name over time. Here we choose Emma and Matteo.
+
+```{r}
+#| label: fig-names-over-time
+#| fig-cap: "Popularity of the names Matteo and Emma over time."
+#| message: false
+datclean |>
+  group_by(sex, name, year) |>
+  summarise(births = sum(births)) |>
+  filter(name %in% c("Emma", "Matteo")) |>
+  ggplot(aes(x = year, y = births, color = name)) +
+  geom_line() +
+  scale_color_viridis_d() +
+  labs(x = "Year", y = "Births", 
+       title = "") +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+```
+
+::: {.callout-note appearance="minimal"}
+## Optional exercise
+
+Try it with your own name!
+:::
+
 ### Inline code
 
 We can use [inline code](https://quarto.org/docs/computations/inline-code.html) to dynamically insert data summaries into text.
