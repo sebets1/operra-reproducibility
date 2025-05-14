@@ -37,27 +37,73 @@ format:
 bibliography: references.bib
 ---
 
+## The Swiss Reproducibility Network Academy
+
+::::: columns
+::: {.column width="80%"}
+-   **Early career** researchers section of the Swiss RN
+
+-   Goal 1: Connect young researchers interested in **reproducibility in Switzerland**
+
+-   Goal 2: Improve reproducibility of research in Switzerland
+
+-   How to join?
+
+    -   young researchers in **Switzerland** (working language: English)
+    -   **interest** in improving research and reproducibility
+    -   **every field** is welcome (diversity is the key!)
+
+-   More information: <https://www.swissrn.org/contents/academy/>
+:::
+
+::: {.column width="20%"}
+![](img/swissrn_logo.png)
+:::
+:::::
+
+
+------------------------------------------------------------------------
+
+## The Center for Reproducible Science
+
+::::: {.columns align="center"}
+::: {.column width="50%"}
+![](img/crs_logo.png){height="300"}
+:::
+
+::: {.column width="50%" align="top"}
+**Research**:
+
+-   Meta-research methods\
+-   Design and analysis of replication studies
+
+**Teaching and training**:
+
+-   Good Research Practice courses\
+-   Educational resources, e.g. [Primers](https://www.crs.uzh.ch/en/resources/CRS-Primers.html)\
+-   [ReproducibiliTea](https://www.crs.uzh.ch/en/training/ReproducibiliTea.html) journal club
+
+<https://www.crs.uzh.ch>
+:::
+:::::
+
+------------------------------------------------------------------------
+
+
 ## Computational reproducibility
 
 A (too) simple definition:
 
 [The **same analysis**]{.fragment} [of the **same data**]{.fragment} [produces the **same results**]{.fragment}
 
+<br>
+[Why does it matter?]{.fragment} [Because computational reproducibility...]{.fragment}
 
 :::: incremental
-
 ::: fragment
-<br>
-Why does it matter?
-::: 
-
-::: fragment
-Because computational reproducibility
-::: 
-::: fragment
--   is a marker for careful, rigorous work
 -   facilitates re-analysis
 -   facilitates re-use of code, methods and data
+-   is a marker for careful, rigorous work
 :::
 
 ::: fragment
@@ -75,7 +121,7 @@ Because computational reproducibility
 -   Attempted to rerun **22,578 Jupyter notebooks** associated with 3,467 publications from PubMed
 -   For 10,388 of these, all declared dependencies could be installed successfully
 -   1,203 notebooks ran through without any errors
--   **879 notebooks (4%)** produced results identical to those reported in the original notebook
+-   **879 notebooks (4%)** produced results identical to those reported in the original
 :::
 
 ------------------------------------------------------------------------
@@ -86,7 +132,7 @@ Because computational reproducibility
 
 2.  Hands-on -- How can you use it?
 
-3.  Demonstration -- What else is possible?
+3.  Demonstration of an advanced workflow -- What else is possible?
 
 ------------------------------------------------------------------------
 
@@ -98,7 +144,7 @@ Because computational reproducibility
 
 ------------------------------------------------------------------------
 
-## Reproducibility
+## Computational Reproducibility
 
 ![](img/reproducible.png){.absolute right="0" top="0" height="75"}
 
@@ -140,43 +186,25 @@ Because computational reproducibility
 
 ------------------------------------------------------------------------
 
-## Threats
-
-:::::: {.columns align="center"}
-:::: {.column width="50%"}
-::: incremental
--   "Garden of Forking Paths" <br> @gelman2013
--   "Researcher Degrees of Freedom" <br> @simmons2011
--   "Selective reporting" <br> @hoffmann2021
-:::
-::::
-
-::: {.column width="50%" align="top"}
-![](img/garden_of_forking_paths.png){width="120%"}
-:::
-::::::
-
-------------------------------------------------------------------------
-
 ## Every step counts
 
 :::::: {.columns align="center"}
 
 ::: {.fragment}
 :::: {.columns align="center"}
-::: {.column width="75%"}
-Reproducible research is hard and may feel overwhelming
+::: {.column width="72%"}
+But reproducible research is hard and may feel overwhelming
 :::
 
-::: {.column width="25%"}
-![](img/homer-overwhelmed.jpg){height="60%"}
+::: {.column width="28%"}
+![](img/homer-overwhelmed.jpg){}
 :::
 ::::
 :::
 
 ::: {.fragment}
 :::: {.columns align="center"}
-::: {.column width="75%"}
+::: {.column width="72%"}
 Do not despair! With every step...
 
 ::: incremental
@@ -186,10 +214,11 @@ Do not despair! With every step...
 :::
 :::
 
-::: {.column width="25%"}
-::: fragment
-![](img/homer-happy.jpg){height="60%"}
-:::
+::: {.column width="28%"}
+
+[![](img/homer-happy.jpg){}]{.fragment}
+[*(images re-used for eduacational purpose)*]{.fragment style="font-size: 0.52em"}
+
 :::
 ::::
 :::
@@ -229,7 +258,7 @@ Do not despair! With every step...
 
 ## Dynamic reporting: The ambition {.center}
 
-[`raw data` $\rightarrow$ dynamic reporting file $\rightarrow$ `manuscript`]{style="font-size: 1.5em;"}
+[`data` $\rightarrow$ dynamic reporting file $\rightarrow$ `manuscript`]{style="font-size: 1.5em;"}
 
 ------------------------------------------------------------------------
 
@@ -340,54 +369,5 @@ Do not despair! With every step...
 
 ------------------------------------------------------------------------
 
-## The Swiss Reproducibility Network Academy
-
-::::: columns
-::: {.column width="80%"}
--   **Early career** researchers section of the Swiss RN
-
--   Goal 1: Connect young researchers interested in **reproducibility in Switzerland**
-
--   Goal 2: Improve reproducibility of research in Switzerland
-
--   How to join?
-
-    -   young researchers in **Switzerland** (working language: English)
-    -   **interest** in improving research and reproducibility
-    -   **every field** is welcome (diversity is the key!)
-
--   More information: <https://www.swissrn.org/contents/academy/>
-:::
-
-::: {.column width="20%"}
-![](img/swissrn_logo.png)
-:::
-:::::
-
-
-------------------------------------------------------------------------
-
-## The Center for Reproducible Science
-
-::::: {.columns align="center"}
-::: {.column width="50%"}
-![](img/crs_logo.png){height="300"}
-:::
-
-::: {.column width="50%" align="top"}
-**Research**:
-
--   Meta-research methods\
--   Design and analysis of replication studies
-
-**Teaching and training**:
-
--   Good Research Practice courses\
--   [Primers](https://www.crs.uzh.ch/en/resources/CRS-Primers.html) and [Reproducibility Notes](https://www.crs.uzh.ch/en/resources/CRS-Reproducibility-Notes.html)\
--   [ReproducibiliTea](https://www.crs.uzh.ch/en/training/ReproducibiliTea.html) journal club
-:::
-:::::
-
-------------------------------------------------------------------------
 
 ## References {.smaller}
