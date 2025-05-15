@@ -27,13 +27,12 @@ website:
         right:                  
           - text: "Instructions"            
             href: ./instructions/index.qmd
-          # Temporarily hidden sections
-          # - text: "Intro"
-          #   href: ./slides_intro/index.qmd
-          # - text: "Demo"
-          #   href: ./demo/index.qmd
-          # - text: "Advanced"
-          #   href: ./slides_advanced/index.qmd
+          - text: "Intro"
+            href: ./slides_intro/index.qmd
+          - text: "Hands-On"
+            href: ./demo/index.qmd
+          - text: "Advanced"
+            href: ./slides_advanced/index.qmd
           # Older sharing and publishing slides
           # - text: "Outro"
           #   href: ./slides_outro/index.qmd

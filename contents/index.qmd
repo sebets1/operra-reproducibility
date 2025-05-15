@@ -4,13 +4,13 @@ subtitle: Workshop at UZH
 sidebar: false
 date: last-modified
 author: 
-  - name: 'Gorka Fraga González'
+  - name: "Gorka Fraga González"
     orcid: 0000-0002-1857-8607
 
-  - name: 'Fabio Molo'
+  - name: "Fabio Molo"
     orcid: 0000-0001-9320-5854
 
-  - name: 'Samuel Pawel'
+  - name: "Samuel Pawel"
     orcid: 0000-0003-2779-320X
 
 listing:
@@ -21,10 +21,9 @@ listing:
   sort: false  
   contents: 
     - ./instructions/*.qmd
-    # Temporarily hidden sections
-    # - ./slides_intro/*.qmd
-    # - ./demo/*.qmd
-    # - ./slides_advanced/*.qmd
+    - ./slides_intro/*.qmd
+    - ./demo/*.qmd
+    - ./slides_advanced/*.qmd
     # Older sharing and publishing slides
     # - ./slides_outro/*.qmd
 toc: false
@@ -32,7 +31,7 @@ page-layout: full
 ---
 
 - Date: 15 May 2025, 14:15 -- 17:00
-- Location: University of Zurich, room RAA-E-30
+- Location: University of Zurich, room [RAA](https://www.plaene.uzh.ch/RAA)-E-30, Rämistrasse 59, 8001 Zürich 
 
 In this workshop, the Center for Reproducible Science of the University of Zurich will introduce the participants to writing reproducible manuscripts and analyses using R and Quarto. Such dynamic reporting tools help researchers make their analyses transparent, shareable, and reproducible, and avoid error-prone and laborious copying and pasting of numbers, tables, figures, and other results.
 

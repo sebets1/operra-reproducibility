@@ -61,7 +61,6 @@ bibliography: references.bib
 :::
 :::::
 
-
 ------------------------------------------------------------------------
 
 ## The Center for Reproducible Science
@@ -89,13 +88,17 @@ bibliography: references.bib
 
 ------------------------------------------------------------------------
 
-
 ## Computational reproducibility
 
 A (too) simple definition:
 
 [The **same analysis**]{.fragment} [of the **same data**]{.fragment} [produces the **same results**]{.fragment}
 
+\ 
+
+::: fragment
+![@Turing2024](img/Turing-reproducible.png){fig-align="center" width="50%"}
+:::
 ------------------------------------------------------------------------
 
 ## Example
@@ -109,6 +112,9 @@ A (too) simple definition:
 -   **879 notebooks (4%)** produced results identical to those reported in the original
 :::
 
+::: fragment
+$\rightarrow$ **Computational reproducibility can be challenging in practice!**
+:::
 ------------------------------------------------------------------------
 
 ## Structure of this workshop
@@ -119,6 +125,9 @@ A (too) simple definition:
 
 3.  Demonstration of an advanced workflow -- What else is possible?
 
+::: fragment
+Website with all materials: <https://crsuzh.pages.uzh.ch/workshop-quarto-2025-uzh/>
+:::
 ------------------------------------------------------------------------
 
 ## Context and terminology
@@ -167,29 +176,33 @@ A (too) simple definition:
 
 <br>
 
-[Robustness + Replicability ? 🤷]{.fragment style="font-size: 1.2em"}
+
+![@Turing2024](img/Turing-generalisable.png){fig-align="center" width="50%"}
+
+::: fragment
+$\rightarrow$ **Reproducibility + Robustness + Replicability necessary for Generalizabilty!**
+:::
 
 ------------------------------------------------------------------------
 
 ## Every step counts
 
-:::::: {.columns align="center"}
-
-::: {.fragment}
-:::: {.columns align="center"}
+:::::::::::: {.columns align="center"}
+:::::: fragment
+::::: {.columns align="center"}
 ::: {.column width="72%"}
 But reproducible research is hard and may feel overwhelming
 :::
 
 ::: {.column width="28%"}
-![](img/homer-overwhelmed.jpg){}
+![](img/homer-overwhelmed.jpg)
 :::
-::::
-:::
+:::::
+::::::
 
-::: {.fragment}
-:::: {.columns align="center"}
-::: {.column width="72%"}
+::::::: fragment
+:::::: {.columns align="center"}
+:::: {.column width="72%"}
 Do not despair! With every step...
 
 ::: incremental
@@ -197,19 +210,14 @@ Do not despair! With every step...
 -   you **already improve** the quality of your research <br> (and of your life)
 -   you learn **broadly applicable technical skills**
 :::
-:::
+::::
 
 ::: {.column width="28%"}
-
-[![](img/homer-happy.jpg){}]{.fragment}
-[*(images re-used for eduacational purpose)*]{.fragment style="font-size: 0.52em"}
-
+[![](img/homer-happy.jpg)]{.fragment} [*(images re-used for eduacational purpose)*]{.fragment style="font-size: 0.52em"}
 :::
-::::
-:::
-
 ::::::
-
+:::::::
+::::::::::::
 
 ------------------------------------------------------------------------
 
@@ -266,14 +274,16 @@ Do not despair! With every step...
 ------------------------------------------------------------------------
 
 ## Some implementations - history
- \
- \
- 
+
+\
+\
+
 ![](img/implementation-timeline.png){width="80%" fig-align="center"}
 
 ------------------------------------------------------------------------
 
 ## Some implementations
+
 \
 \
 
@@ -289,43 +299,39 @@ Do not despair! With every step...
 ------------------------------------------------------------------------
 
 ## Why Quarto?
+
 ::::: columns
 ::: {.column width="75%"}
-
 -   **open source**
 -   **modern**, with new features being developed
 -   **easy-to-use**
--   **multiple programming languages**  (e.g., R, Python, Julia)
--   **multiple editors/IDEs** (e.g., RStudio, VS code)
+-   **multiple programming languages** (e.g., R, Python, Julia)
+-   **multiple editors/IDEs** (e.g., RStudio, VS Code)
 -   **general-purpose** scientific publishing system (e.g., articles, slides, websites)
 :::
 
 ::: {.column width="25%"}
 ![[<https://quarto.org/quarto.png>]{style="font-size:0.6em"}](img/quarto.png)
 :::
-::::
-
-
+:::::
 
 ------------------------------------------------------------------------
 
 ## Quarto in RStudio
 
-![](img/quarto-rstudio-example-html.jpg){fig-align="center" width="85%"}
-
+![](img/quarto-rstudio-example-html.jpg){fig-align="center" width="82%"}
 
 ------------------------------------------------------------------------
 
 ## Quarto in RStudio: PDF output
 
-![](img/quarto-rstudio-example-pdf.png){fig-align="center" width="85%"}
+![](img/quarto-rstudio-example-pdf.png){fig-align="center" width="82%"}
 
 ------------------------------------------------------------------------
 
 ## Quarto in RStudio: MS Word output
 
-![](img/quarto-rstudio-example-word.png){fig-align="center" width="85%"}
-
+![](img/quarto-rstudio-example-word.png){fig-align="center" width="82%"}
 
 ------------------------------------------------------------------------
 
@@ -337,7 +343,7 @@ Do not despair! With every step...
 
 3.  Document your steps, read guides, ask for help
 
-4. Live a dynamic and reproducible life
+4.  Live a dynamic and reproducible life
 
 ------------------------------------------------------------------------
 
@@ -353,6 +359,5 @@ Do not despair! With every step...
 -   Quarto/RMarkdown -- What's different?: [Slides by Ted Laderas](https://laderast.github.io/qmd_rmd/#/title-slide)
 
 ------------------------------------------------------------------------
-
 
 ## References {.smaller}
