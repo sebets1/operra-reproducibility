@@ -96,21 +96,6 @@ A (too) simple definition:
 
 [The **same analysis**]{.fragment} [of the **same data**]{.fragment} [produces the **same results**]{.fragment}
 
-<br>
-[Why does it matter?]{.fragment} [Because computational reproducibility...]{.fragment}
-
-:::: incremental
-::: fragment
--   facilitates re-analysis
--   facilitates re-use of code, methods and data
--   is a marker for careful, rigorous work
-:::
-
-::: fragment
-→ Makes research **more transparent, trustworthy and useful**
-:::
-::::
-
 ------------------------------------------------------------------------
 
 ## Example
@@ -176,13 +161,13 @@ A (too) simple definition:
 
 ------------------------------------------------------------------------
 
-## Generalizability: Example
+## Generalizability
 
 ![](img/generalizable.png){.absolute right="0" top="0" height="75"}
 
-![](img/healthcare-AI_1.png){width="60%" fig-align="center"}
+<br>
 
-![@sohn2023](img/healthcare-AI_2.png){width="40%" fig-align="center"}
+[Robustness + Replicability ? 🤷]{.fragment style="font-size: 1.2em"}
 
 ------------------------------------------------------------------------
 
