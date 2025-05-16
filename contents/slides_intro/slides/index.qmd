@@ -195,7 +195,7 @@ But reproducible research is hard and may feel overwhelming
 :::
 
 ::: {.column width="28%"}
-![](img/homer-overwhelmed.jpg)
+
 :::
 :::::
 ::::::
@@ -213,7 +213,7 @@ Do not despair! With every step...
 ::::
 
 ::: {.column width="28%"}
-[![](img/homer-happy.jpg)]{.fragment} [*(images re-used for eduacational purpose)*]{.fragment style="font-size: 0.52em"}
+
 :::
 ::::::
 :::::::
