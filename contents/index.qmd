@@ -4,9 +4,12 @@ subtitle: Workshop at UZH
 sidebar: false
 date: last-modified
 author: 
+  - name: "Peter Degen"
+    orcid: 0009-0004-0706-9200
+    
   - name: "Gorka Fraga González"
     orcid: 0000-0002-1857-8607
-
+    
   - name: "Fabio Molo"
     orcid: 0000-0001-9320-5854
 
@@ -23,17 +26,17 @@ listing:
     - ./instructions/*.qmd
     - ./slides_intro/*.qmd
     - ./demo/*.qmd
+    - ./slides_outro/*.qmd
     - ./slides_advanced/*.qmd
-    # Older sharing and publishing slides
-    # - ./slides_outro/*.qmd
+    
 toc: false
 page-layout: full
 ---
 
-- Date: 15 May 2025, 14:15 -- 17:00
-- Location: University of Zurich, room [RAA](https://www.plaene.uzh.ch/RAA)-E-30, Rämistrasse 59, 8001 Zürich 
+- Date: 14 November 2025, 13:45 -- 17:00
+- Location: University of Geneva , Uni Dufour room 408 or via Zoom: <https://unige.zoom.us/j/66548827127> (Meeting ID: 665 4882 7127)
 
-In this workshop, the Center for Reproducible Science of the University of Zurich will introduce the participants to writing reproducible manuscripts and analyses using R and Quarto. Such dynamic reporting tools help researchers make their analyses transparent, shareable, and reproducible, and avoid error-prone and laborious copying and pasting of numbers, tables, figures, and other results.
+In this workshop, the Center for Reproducible Science and Research Synthesis (CRS) of the University of Zurich will introduce the participants to writing reproducible manuscripts and analyses using R and Quarto. Such dynamic reporting tools help researchers make their analyses transparent, shareable, and reproducible, and avoid error-prone and laborious copying and pasting of numbers, tables, figures, and other results.
 
 The workshop will begin with an introductory presentation on the purpose and fundamentals of dynamic reporting. The second part is hands-on, and participants are supported to follow along on their own computers and produce a minimally viable reproducible report. Finally, we will demonstrate an advanced publishing workflow using version control and containerization.
 
