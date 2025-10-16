@@ -1,8 +1,8 @@
 ---
 title: "Advanced Workflows"
 subtitle: "Combining dynamic reporting with version control, automation, and containerization"
-author: "Samuel Pawel, Fabio Molo, Gorka Fraga González"
-date:  "May 15, 2025"
+author: "Samuel Pawel, Peter Degen, Fabio Molo, Gorka Fraga González"
+date:  "November 14, 2025"
 date-format: long
 preview-links: true
 include-in-header:

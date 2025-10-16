@@ -8,9 +8,11 @@ author:
   - name: "Fabio Molo"
     orcid: 0000-0001-9320-5854
 
+  - name: "Peter Degen"
+    orcid: 0009-0004-0706-9200
+
   - name: "Samuel Pawel"
     orcid: 0000-0003-2779-320X
-editor: visual
 preview-links: true
 listing: 
   sort-ui: false

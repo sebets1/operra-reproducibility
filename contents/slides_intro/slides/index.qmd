@@ -1,13 +1,14 @@
 ---
 title: | 
-  Reproducible and Dynamic Reporting \
+  Reproducible Research Workflows \
   with R and Quarto -- Getting Started
 subtitle: A Workshop by the Center for Reproducible Science
-date:  "May 15, 2025"
+date:  "November 14, 2025"
 date-format: long
 author:
   - Gorka Fraga González
   - Fabio Molo
+  - Peter Degen
   - Samuel Pawel
 editor: source
 preview-links: true

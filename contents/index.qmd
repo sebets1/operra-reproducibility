@@ -1,5 +1,5 @@
 ---
-title: Reproducible and Dynamic Reporting with R and Quarto - Getting Started
+title: Reproducible Research Workflows with Quarto and R - Getting Started
 subtitle: Workshop at UZH
 sidebar: false
 date: last-modified
@@ -20,13 +20,13 @@ listing:
   type: grid
   id: main-listing
   fields: [title]
-  grid-columns: 4
+  grid-columns: 3
   sort: false  
   contents: 
     - ./instructions/*.qmd
     - ./slides_intro/*.qmd
-    - ./demo/*.qmd
-    - ./slides_outro/*.qmd
+    - ./demo_R/*.qmd
+    - ./slides_sharing/*.qmd
     - ./slides_advanced/*.qmd
     
 toc: false

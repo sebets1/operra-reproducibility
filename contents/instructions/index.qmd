@@ -9,7 +9,7 @@ author:
 
   - name: "Samuel Pawel"
     orcid: 0000-0003-2779-320X
-date: "May 15, 2025"
+date: "November 14, 2025"
 
 ---
 
@@ -37,11 +37,15 @@ quarto install tinytex
 Additional instructions regarding ```LaTeX```, can be found here: <https://quarto.org/docs/output-formats/pdf-basics.html>
 
 
-## Alternative 1: other development environments (optional)
+### Python 
+
+TODO
+
+## Alternative 1: Other development environments (optional)
 
 In the workshop we will use R and RStudio for demonstration, but ```Quarto``` can also be used with Python instead of R and with VS Code, Jupyter Notebooks or other development environments instead of RStudio. If this is of interest to you, the following page is a good starting point: <https://quarto.org/docs/get-started/hello/vscode.html>
 
-## Alternative 2: working from the Posit cloud (optional)
+## Alternative 2: Working from the Posit cloud (optional)
 
 If you do not want to install anything on your computer you can also use a cloud version of R and RStudio. Sign up at the **Posit Cloud** (<https://login.posit.cloud>) and:
 

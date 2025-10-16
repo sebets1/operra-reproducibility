@@ -13,13 +13,13 @@ website:
        
         right: |
            Free under the [CC BY international license 4.0 ](https://creativecommons.org/licenses/by/4.0/). \
-           \ Source code on [![](https://images.ctfassets.net/xz1dnu24egyd/1hnQd13UBU7n5V0RsJcbP3/769692e40a6d528e334b84f079c1f577/gitlab-logo-100.png){fig-alt="Git" width=65px}](https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-uzh)
+           \ Source code on [![](https://images.ctfassets.net/xz1dnu24egyd/1hnQd13UBU7n5V0RsJcbP3/769692e40a6d528e334b84f079c1f577/gitlab-logo-100.png){fig-alt="Git" width=65px}](https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-unige)
            
            
-    favicon: 'assets/Logo_CRS_col.svg'
+    favicon: 'assets/CRSnew_Logo.svg'
     
-    site-url: https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-uzh
-    repo-url: https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-uzh
+    site-url: https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-unige
+    repo-url: https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-unige
     
     navbar:
         collapse-below: lg
@@ -29,13 +29,12 @@ website:
             href: ./instructions/index.qmd
           - text: "Intro"
             href: ./slides_intro/index.qmd
-          - text: "Hands-On"
-            href: ./demo/index.qmd
+          - text: "Hands-On (R)"
+            href: ./demo_R/index.qmd
+          - text: "Sharing/Publishing"
+            href: ./slides_sharing/index.qmd
           - text: "Advanced"
             href: ./slides_advanced/index.qmd
-          # Older sharing and publishing slides
-          # - text: "Outro"
-          #   href: ./slides_outro/index.qmd
 
 format:
     html:         

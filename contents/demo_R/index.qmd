@@ -1,5 +1,5 @@
 ---
-title: Hands-On Demo
+title: Hands-On Demo (R)
 subtitle: Reproducible and Dynamic Reporting with R and Quarto
 author:    
   - name: "Gorka Fraga González"
