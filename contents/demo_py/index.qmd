@@ -21,7 +21,7 @@ format:
 execute:
   eval: true
 engine: jupyter
-bibliography: ../demo_R/references.bib
+bibliography: references.bib
 ---
 
 This hands-on demo requires Python and Quarto. Visit the [instructions](../instructions/index.qmd) page to learn how to install them.
@@ -161,6 +161,240 @@ We first load all Python packages that we will use in our analysis. Copy the cod
 #| warning: false
 #| output: true
 import pandas as pd # data wrangling
+import itables # nicer tables
 import matplotlib.pyplot as plt # plotting
-print(f"test")
+import seaborn as sns # nicer plots
+
+sns.set() # activate seaborn defaults
+itables.options.allow_html = True # needed to hide index with itables
 ```
+
+::: {.callout-note appearance="minimal"}
+**Optional exercises**
+
+Explore different options for code execution:
+
+-   Hide all <!-- echo: false -->
+-   Print all code but do not execute it <!-- echo: true and eval: false -->
+-   Fold all code (accessible by clicking on a button when rendered as HTML) <!-- code-fold: true --> <!-- -   Hide only the code that generates the table -->
+:::
+
+### Read the data
+
+For this example we will use the data set "Vornamen neugeborener Mädchen und Knaben mit Wohnsitz in der Stadt Zürich" (<https://data.stadt-zuerich.ch/dataset/bev_vornamen_baby_od3700>). This data set contains the names of newborns in the city of Zurich since the year 1993. The data was kindly made available to the public domain via a CCZero license by Open Data Zürich. We will now import the data and rename the variables into English.
+
+```{python}
+url = "https://data.stadt-zuerich.ch/dataset/bev_vornamen_baby_od3700/download/BEV370OD3700.csv"
+dat = pd.read_csv(url)
+datclean = (dat.rename({
+  "StichtagDatJahr": "year",
+  "Vorname": "name",
+  "SexLang": "sex",
+  "AnzGebuWir": "births"
+  }, axis=1)
+  .replace({"sex": {"weiblich": "female", "männlich": "male"}}))
+```
+
+### Summarizing the data
+
+We first compute the most common name by year and sex.
+
+```{python}
+ix = datclean.groupby(['sex', 'year'])['births'].idxmax()
+summaries = datclean.loc[ix]
+summaries.sort_values('year', ascending=False, inplace=True)
+s = summaries.style.hide(axis="index")
+s
+```
+
+### Creating a table
+
+We can create an interactive table summarizing our results using the [`itables`](https://mwouts.github.io/itables/quick_start.html) package.
+
+```{python}
+itables.show(s, caption="Most common name of newborns in the city of Zurich by year and sex")
+```
+
+::: {.callout-note appearance="minimal"}
+**Optional exercises**
+
+-   Make a table that displays the number of registered births per year
+:::
+
+### Plot the data
+
+Creating a plot in a code chunk automatically inserts it into the rendered Quarto report. For example, we may want to plot the most common names between 2021 and 2024.
+
+```{python}
+#| label: fig-names
+#| fig-cap: "Most common names of Zurich newborns in 2021-2024."
+#| message: false
+
+top10 = (
+    datclean.loc[datclean["year"] > 2020]
+    .groupby(["sex", "name"], as_index=False)["births"]
+    .sum()
+    .sort_values(["sex", "births"], ascending=[True, False])
+    .groupby("sex")
+    .head(10)
+)
+
+g = sns.FacetGrid(top10, col="sex", sharex=False, sharey=False, height=5, aspect=0.75)
+g.map_dataframe(sns.barplot, y="name", x="births")
+
+# Add bar labels
+for ax in g.axes[0]:
+  ax.bar_label(ax.containers[0], fontsize=10, padding=-15, color="white")
+
+g.set_axis_labels("Births", "Name")
+g.set_titles(col_template="{col_name}")
+g.fig.subplots_adjust(top=0.85)
+plt.tight_layout()
+```
+
+Note that we added chunk options to create a caption (`#| fig-cap: "Most common names of Zurich newborns in 2021-2024."`) and a label (`#| label: fig-label`). We can then refer to [@fig-names] in the text using `[@fig-label]`.
+
+::: {.callout-note appearance="minimal"}
+**Optional exercises**
+
+-   Change the height and width of your plot
+-   Add a label to the previously generated table and refer to it in the text (beware that table labels start with `tab` instead of `fig`).
+:::
+
+### Multiple figures
+
+Quarto can also nicely display multiple figures simultaneously. For example, we may want to plot the occurrence of names over time in two plots. Here we choose Peter, Samuel, and Gorka for one figure and Daniel and Sarah for the other. 
+
+```{python}
+#| label: fig-names-over-time
+#| layout-ncol: 2
+#| fig-cap: "Popularity of names over time."
+#| fig-subcap:
+#|   - "Peter, Samuel, and Gorka"
+#|   - "Daniel and Sarah"
+#| message: false
+
+# first figure
+fig, ax = plt.subplots(1, 1, figsize=(4,4))
+first = datclean[datclean["name"].isin(["Peter", "Samuel", "Gorka"])]
+sns.lineplot(data=first, x="year", y="births", hue="name", marker="o", ax=ax)
+
+# second figure
+fig, ax = plt.subplots(1, 1, figsize=(4,4))
+second = datclean[datclean["name"].isin(["Daniel", "Sarah"])]
+sns.lineplot(data=second, x="year", y="births", hue="name", marker="o", ax=ax)
+```
+
+Since we specified the chunk option `layout-ncol: 2`, both figures are displayed next to each other. Of course, we could have also used Python to create one figure with two subplots using `plt.subplots(1, 2)`. Here, we chose to make two figures to demonstrate the `fig-subcap` chunk option.
+
+::: {.callout-note appearance="minimal"}
+**Optional exercise**
+
+Add a third plot with your own name!
+:::
+
+### Inline code
+
+A "killer-feature" of dynamic reporting is the possibility to add [inline code](https://quarto.org/docs/computations/inline-code.html). This allows us to dynamically insert data summaries into text, avoiding tedious and error-prone copy-and-pasting. For example,
+
+> In 2023, the most common male name was \``` {python} summaries.query("year == 2023 and sex == 'male'").name.iloc[0]` `` whereas the most common female name was \``` {python} summaries.query("year == 2023 and sex == 'female'").name.iloc[0]` ``.
+
+produces
+
+> In 2023, the most common male name was `{python} summaries.query("year == 2023 and sex == 'male'").name.iloc[0]` whereas the most common female name was `{python} summaries.query("year == 2023 and sex == 'female'").name.iloc[0]`.
+
+Note that, instead of performing computations within an inline code chunk, it is often advisable to perform computations in a separate code chunk, save the results to a variable, and then print the variable in the inline code chunk.
+
+::: {.callout-note appearance="minimal"}
+**Optional exercise**
+
+Compute the total number of births in the data set and then display it via an inline code chunk.
+:::
+
+## References
+
+In Quarto, it is also possible to include a bibliography file in BibTeX format (with .bib file extension) to automatically generate citations and a bibliography (<https://quarto.org/docs/authoring/citations.html>). This file has to be specified in the YAML header. In this demo, we have a `references.bib` file in the same directory as this .qmd file, so we specify:
+
+``` yaml
+bibliography: references.bib
+```
+
+We can then use `[@Hofmann2023]` (with parentheses) or `@Hofmann2023` (without parentheses) to cite a bibliography item named Hofmann2023. For example, @Hofmann2023 provides an introduction to dynamic reporting. @Peikert2021 summarizes a more advanced dynamic reporting workflow. @Knuth1984 proposed the literate programming paradigm.
+
+A typical entry from a BibTeX bibliography file looks like this:
+
+``` bibtex
+@article{Knuth1984,
+  title = {Literate Programming},
+  volume = {27},
+  DOI = {10.1093/comjnl/27.2.97},
+  number = {2},
+  journal = {The Computer Journal},
+  author = {Knuth,  D. E.},
+  year = {1984},
+  pages = {97--111}
+}
+```
+
+These files can either be created manually o with a reference manager (e.g., [Zotero](https://www.zotero.org/)).
+
+::: {.callout-note appearance="minimal"}
+**Optional exercise**
+
+Cite one of your favorite papers
+:::
+
+## Reproducibility
+
+When creating dynamic reports, it is good practice to document the software versions and other parts of the computational environment. In reports that use the R programming language, a simple yet effective way to document your computational environment is to include the output of `sessionInfo()`. While there is no built-in equivalent in Python, several workarounds exists. For example, the [session-info](https://pypi.org/project/session-info/) package provides similar functionality to R's `sessionInfo()`. Alternatively, you can also print the installed packages using a command from your Python package manager, for example, `!pip freeze` or `!conda list`. The `!` is used to execute shell commands directly from a Python chunk in a Quarto notebook. Yet another option is to manually print the computational environment using only the Python Standard Library:
+
+```{python}
+import sys
+import platform
+import importlib.metadata as metadata
+
+print("Python version:", sys.version)
+print("Platform:", platform.platform())
+print("\nInstalled packages:")
+
+for dist in sorted(metadata.distributions(), key=lambda d: d.metadata["Name"].lower()):
+    name = dist.metadata["Name"]
+    version = dist.version
+    print(f"  {name}=={version}")
+
+```
+
+::: {.callout-note appearance="minimal"}
+**Optional exercise**
+
+Install the `session-info` package and use it to capture the computational environment for this report. Try also `!pip freeze` in your Quarto notebook. How do the outputs differ? Which option is more reproducible?
+:::
+
+# Practical tips
+
+This concludes a first introduction to dynamic reporting with Quarto. Here are some further tips
+
+-   Nobody knows all the options by heart, use the [Quarto documentation](https://quarto.org/docs/reference/)!
+-   Re-render your reports often to spot errors quickly
+-   Use relative paths so that others can reproduce your report
+-   Always include the computational environment at the bottom of your report to show details on the computational environment (e.g., package versions) used to generate your report <!-- - When sharing your analyses, include a README file that documents all steps necessary to create your report -->
+
+# Gallery (optional)
+
+The are many examples of dynamically generated reports online. Explore the links below:
+
+-   Example 1. Reproducible HTML report using R Markdown: <https://data.snf.ch/stories/open-research-data-2023-en.html>
+-   Example 2. Reproducible PDF report using knitr: <https://gitlab.uzh.ch/fabio.molo/nhb-replication>
+-   Example 3. Website with dynamically generated course materials: <https://github.com/avehtari/BDA_course_Aalto/tree/master>
+-   Example 4. Reproducible HTML slides with Quarto: <https://github.com/kjhealy/flipbookr-quarto/tree/main?tab=readme-ov-file>.
+-   Example 5. Code repository of a paper with multiple Quarto analyses (HTML): <https://github.com/SamCH93/missSim>
+
+Reflect about the following questions:
+
+-   [ ] Can you find the source files that generate the reports?
+-   [ ] Which dynamic reporting tools are used?
+-   [ ] Can you access the outputs?
+-   [ ] Do they use some advanced features for dynamic reporting or computational reproducibility?
+-   [ ] What would be the workflow to reproduce these reports?
+
+# References
