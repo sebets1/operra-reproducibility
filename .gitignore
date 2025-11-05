@@ -8,4 +8,5 @@ _freeze/
 
 /.quarto/
 _site 
-_freeze  
+_freeze
+*quarto_ipynb
