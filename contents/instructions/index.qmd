@@ -37,9 +37,11 @@ quarto install tinytex
 Additional instructions regarding ```LaTeX```, can be found here: <https://quarto.org/docs/output-formats/pdf-basics.html>
 
 
-### Python 
+## Alternative 1: Python (optional)
 
-First, install Quarto and pick your favorite development environment by following the [instructions here](https://quarto.org/docs/get-started/). If you don't yet have Python 3 on your system, we recommend you install a version using the standard installer from <https://www.python.org/downloads/>. We will use a few additional Python packages in the workshop. It is best practice to always install Python packages in virtual environments, for example, using [venv](https://docs.python.org/3/library/venv.html) (included in Python) or [conda](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html) (separate installation).
+In the workshop we will use R and RStudio for demonstration, but ```Quarto``` can also be used with Python instead of R and with VS Code, Jupyter Notebooks or other development environments instead of RStudio.
+
+To get up and running with Python, first install Quarto and pick your favorite development environment by following the [instructions here](https://quarto.org/docs/get-started/) (we will use VS Code in the hands-on demo). If you don't yet have Python 3 on your system, we recommend you install a version using the standard installer from <https://www.python.org/downloads/>. We will use a few additional Python packages in the workshop. It is best practice to always install Python packages in virtual environments, for example, using [venv](https://docs.python.org/3/library/venv.html) (included in Python) or [conda](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html) (separate installation).
 
 ::: {.panel-tabset}
 
@@ -75,10 +77,6 @@ Note that this step is not required if you are merely using conda with Quarto. I
 ::: {.callout-note}
 Note: The above package install commands don't specify the package versions. To exactly reproduce the results from the hands-on demo, download `requirements.txt` from this site's [GitLab repository](https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-unige) and install the packages using `pip install -r requirements.txt` instead.
 :::
-
-## Alternative 1: Other development environments (optional)
-
-In the workshop we will use R and RStudio for demonstration, but ```Quarto``` can also be used with Python instead of R and with VS Code, Jupyter Notebooks or other development environments instead of RStudio. If this is of interest to you, the following page is a good starting point: <https://quarto.org/docs/get-started/hello/vscode.html>
 
 ## Alternative 2: Working from the Posit cloud (optional)
 

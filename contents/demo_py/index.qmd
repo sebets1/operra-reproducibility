@@ -24,16 +24,14 @@ engine: jupyter
 bibliography: references.bib
 ---
 
-This hands-on demo requires Python and Quarto. Visit the [instructions](../instructions/index.qmd) page to learn how to install them.
+This hands-on demo requires Python and Quarto. Visit the [instructions](../instructions/index.qmd) page to learn how to install them. We will further assume that you are using Quarto with VS Code (make sure you have the [Quarto extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto)), although most of this demo is editor-agnostic.
 
 
 # Creating a Quarto file
 
-1)  In the RStudio menu, go to `File > New File > Quarto document`
-2)  Use the default settings and enter a filename
-3)  Save the file with a .qmd filename extension
-4)  Click on the button `Render` with the blue arrow on top of the editor in RStudio
-5)  An .html file with the same name as your .qmd file should have been generated
+1)  In VS Code, create a new file with the .qmd extension
+2)  Click on the button `Preview` on the top right corner of the editor or use the shortcut `Ctrl + Shift + K` to render a preview of the document
+3)  An .html file with the same name as your .qmd file should have been generated
 
 <h3>🎉 Congratulations, you have generated your first dynamic report! 🎊  </h3>
 
@@ -133,12 +131,12 @@ A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdow
 
 > An impressive quote
 
-This type of text editing is different from WYSIWYG (*What you see is what you get*) editors, such as Microsoft Word. In RStudio, it is possible to switch between the `visual` and `source` modes (topleft corner of the editor). The `source` mode displays the raw code, while the `visual` tab shows a live preview of the formatted document and provides WYSIWYG-like interface. This makes it easier to see how your report will look when rendered and can be useful if you do not know certain Markdown syntax. Nevertheless, we recommend to use the `source` mode as the default as it displays the raw code.
+This type of text editing is different from WYSIWYG (*What you see is what you get*) editors, such as Microsoft Word. In VS Code, rendering a .qmd file creates a new window next to your source code that shows a preview of the formatted document and provides a WYSIWYG-like interface.
 
 ::: {.callout-note appearance="minimal"}
 **Optional exercise**
 
-Include an image in your report. Use the visual mode to shrink it down and see how the code for resizing looks like.
+Include an image in your report.
 :::
 
 <!-- ![](https://upload.wikimedia.org/wikipedia/commons/7/74/A-Cat.jpg){fig-align="center" width="273"} -->
@@ -150,7 +148,7 @@ Include an image in your report. Use the visual mode to shrink it down and see h
 ::: {.callout-tip collapse="false"}
 #### Code chunk options
 
-Code chunks are delimited by ```` ```{python} ```` (you can specify other languages like R, Julia, ObservableJS). For each code you can add *chunk options* to the code chunks with `#|`, for example `#| echo: false` will hide the code. In RStudio you can see the options available if you type `#|` and then press the TAB key on your keyboard. Many options can be set globally for the entire document on the YAML header (e.g., under `execute:`, under `html:`, or under `pdf:`).
+Code chunks are delimited by ```` ```{python} ```` (you can specify other languages like R, Julia, ObservableJS). For each code you can add *chunk options* to the code chunks with `#|`, for example `#| echo: false` will hide the code. In VS Code you can see the options available if you type `#| ` (note the whitespace) and then press `Ctrl + Space`. Many options can be set globally for the entire document on the YAML header (e.g., under `execute:`, under `html:`, or under `pdf:`).
 :::
 
 ### Load libraries
@@ -186,13 +184,13 @@ For this example we will use the data set "Vornamen neugeborener Mädchen und Kn
 ```{python}
 url = "https://data.stadt-zuerich.ch/dataset/bev_vornamen_baby_od3700/download/BEV370OD3700.csv"
 dat = pd.read_csv(url)
-datclean = (dat.rename({
+datclean = dat.rename({
   "StichtagDatJahr": "year",
   "Vorname": "name",
   "SexLang": "sex",
   "AnzGebuWir": "births"
   }, axis=1)
-  .replace({"sex": {"weiblich": "female", "männlich": "male"}}))
+datclean.replace({"sex": {"weiblich": "female", "männlich": "male"}}, inplace=True)
 ```
 
 ### Summarizing the data
@@ -203,8 +201,8 @@ We first compute the most common name by year and sex.
 ix = datclean.groupby(['sex', 'year'])['births'].idxmax()
 summaries = datclean.loc[ix]
 summaries.sort_values('year', ascending=False, inplace=True)
-s = summaries.style.hide(axis="index")
-s
+summaries_styled = summaries.style.hide(axis="index")
+summaries_styled
 ```
 
 ### Creating a table
@@ -212,7 +210,7 @@ s
 We can create an interactive table summarizing our results using the [`itables`](https://mwouts.github.io/itables/quick_start.html) package.
 
 ```{python}
-itables.show(s, caption="Most common name of newborns in the city of Zurich by year and sex")
+itables.show(summaries_styled, caption="Most common name of newborns in the city of Zurich by year and sex")
 ```
 
 ::: {.callout-note appearance="minimal"}
