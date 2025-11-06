@@ -29,7 +29,7 @@ format:
 These are some frequent use cases:
 
 1.  `Preliminary results` (temporary, internal reports)
-2.  `Internal monitoring`(regularly updated reports)
+2.  `Internal monitoring` (regularly updated reports)
 3.  `Templates or documentation`
 4.  `Dissemination` to broader audiences
 5.  `Publication` (preprint, dataset, article, etc)
@@ -37,18 +37,18 @@ These are some frequent use cases:
 ## Git version-controlled repositories
 
 -   [Git](https://git-scm.com/): free and open source distributed version control system
--   Popular platforms: [Gitlab](https://gitlab.com/)(open) and [Github](https://github.com/)(Microsoft)
--   There are `Gitlab instances` at many universities
+-   Popular platforms: [GitLab](https://gitlab.com/) (open) and [GitHub](https://github.com/) (Microsoft)
+-   There are `GitLab instances` at many universities
 -   Meant for code and documents, not as data repositories
 -   Recommended for `all` sharing scenarios
 
-## Sharing with Gitlab pages
+## Sharing with GitLab pages
 
 -   [Quarto websites](https://quarto.org/docs/websites/) can easily assemble HTMLs in a website
--   [Gitlab pages](https://docs.gitlab.com/ee/user/project/pages/) can host multiple `static` websites for free
+-   [GitLab pages](https://docs.gitlab.com/ee/user/project/pages/) can host multiple `static` websites for free
 -   They can be `private` or `public`
 -   HTML interactivity: e.g., `dashboards`, `plotly`, `DataTables`
--   Example use-cases: sharing results, technical documentation, templates, dissemination, etc
+-   Example use-cases: sharing results, technical documentation, templates, dissemination, etc.
 
 ------------------------------------------------------------------------
 
@@ -85,10 +85,10 @@ Required to make our resources `citable`
 
 ## Git repositories and DOIs
 
--   Gitlab/Github does not offer DOIs
+-   GitLab and GitHub do not offer DOIs
 -   'Persistent URLs'/'Permanent links' not as strongly persistent
--   But we can combine a [Gitlab releases](https://docs.gitlab.com/ee/user/project/releases/) with DOI enabling platforms
--   A `release` in Gitlab is a `snapshot` of a repository with
+-   But we can combine a [GitLab releases](https://docs.gitlab.com/ee/user/project/releases/) with DOI enabling platforms
+-   A `release` in GitLab is a `snapshot` of a repository with
     -   Version tag
     -   Source code and metadata
 
@@ -96,21 +96,21 @@ Required to make our resources `citable`
 
 ### Workflow example with Gitlab and Zenodo {.nostretch}
 
-Robustness check for a Nat. Hum. Behav [initiative](https://www.nature.com/articles/s41562-024-01818-7)
+[Robustness check](https://www.nature.com/articles/s41562-024-01818-7) for Nature Human Behaviour
 
-##### [Gitlab Repository](https://gitlab.uzh.ch/crsuzh/nhb-replication)
+##### [GitLab Repository](https://gitlab.uzh.ch/crsuzh/nhb-replication)
 
 ::: {.column width="50%"}
 ![](images/clipboard-4095247038.png){fig-align="left" width="491"}
 :::
 
-:::: {.column width="50%"}
+:::: {.column width="45%"}
 ::: font-small
 <br> <br>
 
 Each release includes assets (zipped source code) and a .json with the release metadata
 
-The README.md file has a link to the ZENODO entry with a DOI and citation information.
+The README.md file has a link to the Zenodo entry with a DOI and citation information.
 :::
 ::::
 
@@ -133,7 +133,7 @@ The README.md file has a link to the ZENODO entry with a DOI and citation inform
 -   OSF feature to [preregister](https://help.osf.io/article/145-preregistration) your research plan
 -   It can be private and released upon project completion
 -   OSF [templates](https://help.osf.io/article/229-select-a-registration-template) can help structure your report
--   Enhances visibility, `rigor and transparency` of your
+-   Enhances visibility, rigor and transparency of your work
 
 ------------------------------------------------------------------------
 
