@@ -75,18 +75,18 @@ bibliography: references.bib
 :::
 
 ::: {.column width="50%" align="top"}
-**Research**:
+**Teaching and training**
+
+-   Good Research Practice courses\
+-   Educational resources, e.g., [Primers](https://www.crs.uzh.ch/en/resources/CRS-Primers.html)\
+-   [ReproducibiliTea](https://www.crs.uzh.ch/en/training/ReproducibiliTea.html) journal club
+
+**Research**
 
 -   Evidence synthesis in biomedical research
 -   Open research data
 -   Methods for replication studies
 -   Assessing and improving research  quality
-
-**Teaching and training**:
-
--   Good Research Practice courses\
--   Educational resources, e.g., [Primers](https://www.crs.uzh.ch/en/resources/CRS-Primers.html)\
--   [ReproducibiliTea](https://www.crs.uzh.ch/en/training/ReproducibiliTea.html) journal club
 :::
 :::::
 
@@ -133,7 +133,7 @@ A (too) simple definition:
 $\rightarrow$ **Computational reproducibility can be challenging in practice!**
 :::
 ::: fragment
-$\rightarrow$ **Code from sharing authors is likely more reproducible!**
+$\rightarrow$ **Still optimistic estimates: Code from non-sharing authors likely less reproducible!**
 :::
 ------------------------------------------------------------------------
 
@@ -160,7 +160,7 @@ Website with all materials: <https://crsuzh.pages.uzh.ch/workshop-quarto-2025-un
 
 ------------------------------------------------------------------------
 
-## Computational Reproducibility
+## Computational reproducibility
 
 ![](img/reproducible.png){.absolute right="0" top="0" height="75"}
 
@@ -258,11 +258,11 @@ Do not despair! With every step...
 
 :::: {.column width="60%"}
 ::: incremental
--   **unclear** execution order
+-   **Unclear** execution order
 
--   **time-consuming** copy-pasting
+-   **Time-consuming** copy-pasting
 
--   **error-prone** copy-pasting
+-   **Error-prone** copy-pasting
 
 <!-- -   unclear further processing of images and tables\ -->
 :::
@@ -311,7 +311,7 @@ Do not despair! With every step...
 
 |   | File | Code | Markup | Output formats |
 |---------------|---------------|---------------|---------------|---------------|
-| Sweave | .Rnw | R | LaTeX | pdf, tex |
+| Sweave/knitr | .Rnw | R | LaTeX | pdf, tex |
 | R Markdown | .Rmd | R | Markdown | pdf, html, tex, docx, pptx |
 | Jupyter Notebook | .ipynb | Julia, Python, R | Markdown | pdf, html, tex, py, ... |
 | Quarto | .qmd | Julia, Python, R | Markdown | pdf, html, tex, docx, pptx, ... |
@@ -324,12 +324,12 @@ Do not despair! With every step...
 
 ::::: columns
 ::: {.column width="75%"}
--   **open source**
--   **modern**, with new features being developed
--   **easy-to-use**
--   **multiple programming languages** (e.g., R, Python, Julia)
--   **multiple editors/IDEs** (e.g., RStudio, VS Code)
--   **general-purpose** scientific publishing system (e.g., articles, slides, websites)
+-   **Open source**
+-   **Modern**, with new features being developed
+-   **Easy-to-use**
+-   **Multiple programming languages** (e.g., R, Python, Julia)
+-   **Multiple editors/IDEs** (e.g., RStudio, VS Code)
+-   **General-purpose** scientific publishing system (e.g., articles, slides, websites)
 :::
 
 ::: {.column width="25%"}

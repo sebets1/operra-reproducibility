@@ -1,6 +1,6 @@
 ---
 title: Reproducible Research Workflows with Quarto and R - Getting Started
-subtitle: Workshop at UZH
+subtitle: Workshop at UNIGE
 sidebar: false
 date: last-modified
 author: 
@@ -39,7 +39,7 @@ page-layout: full
 
 In this workshop, the Center for Reproducible Science and Research Synthesis (CRS) of the University of Zurich will introduce the participants to writing reproducible manuscripts and analyses using R and Quarto. Such dynamic reporting tools help researchers make their analyses transparent, shareable, and reproducible, and avoid error-prone and laborious copying and pasting of numbers, tables, figures, and other results.
 
-The workshop will begin with an introductory presentation on the purpose and fundamentals of dynamic reporting. The second part is hands-on, and participants are supported to follow along on their own computers and produce a minimally viable reproducible report. Finally, we will demonstrate an advanced publishing workflow using version control and containerization.
+The workshop will begin with an introductory presentation on the purpose and fundamentals of dynamic reporting. The second part is hands-on, and participants are supported to follow along on their own computers and produce a minimally viable reproducible report. The hands-on demo is done in R but a version using Python is also provided. Finally, we will show best practices for sharing and publishing, and show some advanced workflows using version control and software containerization.
 
 # Installation and Slides
 
