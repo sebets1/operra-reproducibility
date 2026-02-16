@@ -5,7 +5,7 @@ The website for this workshop is: <https://crsuzh.pages.uzh.ch/workshop-quarto-2
 ## Citation
 
 Cite this workshop as
-> Molo, F., Fraga González, G., Degen, P., Pawel, S. 2025. Reproducible Research Workflows with Quarto and R - Getting Started. Workshop at the University of Geneva. <https://doi.org/XXXXX/zenodo.XXXXXX>
+> Molo, F., Fraga González, G., Degen, P., Pawel, S. 2025. Reproducible Research Workflows with Quarto and R - Getting Started. Workshop at the University of Geneva. <https://doi.org/10.5281/zenodo.18659813>
 
 A BibTeX entry is given by
 
@@ -15,7 +15,7 @@ A BibTeX entry is given by
   title        = {Workshop ``Reproducible Research Workflows with Quarto and R - Getting Started'' at UNIGE },
   month        = November,
   year         = 2025,
-  doi          = {doi.org/XXXXXXX/zenodo.XXXXXXX},
+  doi          = {doi.org/10.5281/zenodo.18659813},
   url          = {https://crsuzh.pages.uzh.ch/workshop-quarto-2025-unige/}
 }
 ```
