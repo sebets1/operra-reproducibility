@@ -1,0 +1,175 @@
+---
+title: "Workflow Management"
+subtitle: "Automating multi-step computational pipelines"
+author: "Samuel Pawel, Peter Degen, Fabio Molo, Gorka Fraga González"
+date-format: long
+preview-links: true
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.8em;
+        color: #29487d;
+      }
+      </style>
+format:
+  revealjs:
+    menu: true
+    pdf: true
+    code-line-numbers: false
+    smaller: true
+    fig-align: left
+    logo: "img/uzh_logo_d_pos_web_assoc.jpg"
+    embed-resources: true
+    progress: true
+    slide-number: true
+    footer: "Center for Reproducible Science and Research Synthesis | [Home](../../index.qmd)"
+    title-slide-attributes:
+      data-background-size: contain
+      data-background-position: bottom
+      data-background-opacity: "0.8"
+bibliography: references.bib
+nocite: |
+  @Peikert2021
+---
+
+## The problem: multi-step pipelines
+
+::: incremental
+-   A typical research project has **multiple scripts** that must run in order:
+    -   `download.R` → `clean.R` → `analyse.R` → `figures.R` → `paper.qmd`
+
+-   How to know **which files to run in which order**?
+
+-   How to avoid **re-running everything** when only one file changed?
+
+-   How to make the pipeline **self-documenting and shareable**?
+
+. . .
+
+**Solution: workflow management tools (e.g., Make, Snakemake, targets)**
+:::
+
+------------------------------------------------------------------------
+
+## Automation with Make
+
+-   Tool for managing **computational recipes**
+
+-   **Automating multiple steps** into one
+
+. . .
+
+:::::: columns
+::: {.column width="50%"}
+> Arrabbiata sauce, or sugo all'arrabbiata in Italian, is a spicy sauce for pasta made from garlic, tomatoes, and dried red chili peppers cooked in olive oil.
+
+[https://en.wikipedia.org/wiki/Arrabbiata_sauce](https://en.wikipedia.org/wiki/Arrabbiata_sauce){style="font-size:0.7em"}
+:::
+
+:::: {.column width="50%"}
+::: fragment
+Makefile
+``` makefile
+arrabiata.pdf: arrabiata.qmd sauce.csv pasta.R
+  quarto render arrabiata.qmd
+
+sauce.csv: cook.R tomatoes.zip aromatics.yaml
+  R -e "source(cook.R)"
+
+aromatics.yaml: sizzle.py garlic.txt chili.json
+  python sizzle.py garlic.txt
+  python sizzle.py chili.json
+```
+
+Terminal
+``` bash
+make arrabiata.pdf # execute recipe
+```
+:::
+::::
+::::::
+
+::: fragment
+![](img/Make-diagram.png){fig-align="center" width="600"}
+:::
+
+------------------------------------------------------------------------
+
+## How Make works
+
+::: incremental
+-   A **Makefile** defines **targets**, **dependencies**, and **recipes**
+
+-   Make checks **timestamps**: only re-runs a target if a dependency is newer
+
+-   **Dependency graph** ensures correct execution order automatically
+
+-   Running `make` from the terminal executes the minimal set of steps needed
+:::
+
+::: fragment
+``` makefile
+# Pattern: target: dependencies
+#              recipe (must be indented with a TAB)
+
+report.html: analysis.R data.csv paper.qmd
+    Rscript analysis.R
+    quarto render paper.qmd
+```
+:::
+
+------------------------------------------------------------------------
+
+## A minimal research Makefile
+
+``` makefile
+# Final target
+all: paper.pdf
+
+# Render the paper (depends on cleaned data and figures)
+paper.pdf: paper.qmd results/estimates.rds figures/fig1.png
+    quarto render paper.qmd --to pdf
+
+# Run statistical analysis
+results/estimates.rds: R/analyse.R data/clean.csv
+    Rscript R/analyse.R
+
+# Generate figure 1
+figures/fig1.png: R/figures.R results/estimates.rds
+    Rscript R/figures.R
+
+# Clean raw data
+data/clean.csv: R/clean.R data/raw.csv
+    Rscript R/clean.R
+
+# Remove all generated files
+clean:
+    rm -rf paper.pdf results/ figures/
+```
+$
+
+
+------------------------------------------------------------------------
+
+## CRS Primer on Workflow Management
+
+:::::: columns
+::: {.column width="45%"}
+![<https://doi.org/10.5281/zenodo.15792190>](img/primer-make.png)
+:::
+::::::
+
+------------------------------------------------------------------------
+
+## Additional Resources
+
+-   GNU Make manual: <https://www.gnu.org/software/make/manual/>
+-   The `targets` R package book: <https://books.ropensci.org/targets/>
+-   Snakemake documentation: <https://snakemake.readthedocs.io>
+-   The Turing Way — Reproducible Pipelines: <https://the-turing-way.netlify.app/reproducible-research/make>
+-   @Peikert2021: a full reproducible workflow combining Make, Git, and Docker
+
+------------------------------------------------------------------------
+
+## References {.smaller}

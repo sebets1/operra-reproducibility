@@ -1,0 +1,14 @@
+---
+title: "Hands-On Demo: Workflow Management"
+subtitle: "Automating research pipelines with Make and targets"
+author:
+  - name: "Fabio Molo"
+    orcid: 0000-0001-9320-5854
+format:
+  html:
+    toc-depth: 4
+execute:
+  eval: false
+---
+
+# Title

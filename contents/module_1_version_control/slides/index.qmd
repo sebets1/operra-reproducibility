@@ -1,0 +1,190 @@
+---
+title: "Version Control with Git"
+subtitle: "Tracking changes, collaborating, and archiving research"
+author: "Samuel Pawel, Peter Degen, Fabio Molo, Gorka Fraga González"
+date-format: long
+preview-links: true
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.8em;
+        color: #29487d;
+      }
+      </style>
+format:
+  revealjs:
+    menu: true
+    pdf: true
+    code-line-numbers: false
+    smaller: true
+    fig-align: left
+    logo: "img/uzh_logo_d_pos_web_assoc.jpg"
+    embed-resources: true
+    progress: true
+    slide-number: true
+    footer: "Center for Reproducible Science and Research Synthesis | [Home](../../index.qmd)"
+    title-slide-attributes:
+      data-background-size: contain
+      data-background-position: bottom
+      data-background-opacity: "0.8"
+bibliography: references.bib
+nocite: |
+  @Peikert2021
+  @Turing2024
+---
+
+## Why version control?
+
+::: incremental
+-   How to keep track of different **file versions**?
+    -   `paper-final.qmd` → `paper-final2.qmd` → `paper-final2b.qmd` → 😱
+-   How to **collaborate** without overwriting each other's work?
+-   How to **go back** to a working state after something breaks?
+-   How to know **who changed what and when**?
+
+. . .
+
+**Solution: Git**
+:::
+
+------------------------------------------------------------------------
+
+## Version control with Git
+
+::::::: columns
+:::: {.column width="70%"}
+::: incremental
+-   **De facto standard** version control system
+
+-   Can **go back in time** to previous versions
+
+-   Can **track changes** between versions
+
+-   Can **branch and merge**
+
+-   Useful for **collaboration** and **file transfer**
+
+-   **Command line** interface (learning curve)
+
+-   **Graphical interface** in many editors/IDEs (e.g., RStudio, VS Code)
+
+-   **Git** (software) ≠ **GitHub**/**GitLab** (Git repository hosting services)
+
+-   Snapshots enable **persistently archiving** (with DOI) on data repositories (e.g., Zenodo)
+:::
+::::
+
+:::: {.column width="30%"}
+![[<https://git-scm.com/downloads/logos>]{style="font-size:0.6em"}](img/Git-logo.png){fig-align="center" width="150"}
+
+![@Turing2024](img/git-turing-way.png){fig-align="center" width="500"}
+
+::: fragment
+![[<https://commons.wikimedia.org/wiki/File:Git_operations.svg>]{style="font-size:0.7em"}](img/Git_operations.png)
+:::
+::::
+:::::::
+
+------------------------------------------------------------------------
+
+## Core Git concepts
+
+| Concept | Description |
+|---|---|
+| **Repository** | A directory tracked by Git (`.git/` folder inside) |
+| **Commit** | A snapshot of changes, with a message and timestamp |
+| **Branch** | An independent line of development |
+| **Merge** | Combining changes from two branches |
+| **Remote** | A version of the repo hosted on a server (GitHub/GitLab) |
+| **Clone** | Copying a remote repo locally |
+| **Push / Pull** | Sending / fetching commits to/from a remote |
+
+------------------------------------------------------------------------
+
+## Basic Git workflow
+
+``` bash
+# Initialise a new repository
+git init
+
+# Check the status of your working directory
+git status
+
+# Stage changes for the next commit
+git add myfile.qmd
+
+# Commit staged changes with a message
+git commit -m "Add introduction section"
+
+# Connect to a remote and push
+git remote add origin https://github.com/yourname/yourrepo.git
+git push -u origin main
+```
+
+------------------------------------------------------------------------
+
+## Working with branches
+
+``` bash
+# Create and switch to a new branch
+git checkout -b feature/new-analysis
+
+# ... make changes and commit ...
+
+# Switch back to main
+git checkout main
+
+# Merge your feature branch
+git merge feature/new-analysis
+```
+
+::: fragment
+Branches are cheap and encourage **experimentation without risk**.
+:::
+
+------------------------------------------------------------------------
+
+## Git for reproducible research
+
+::: incremental
+-   Every commit is a **citable point in time** — link a paper to a specific commit
+
+-   Combine with a **data repository** (e.g., Zenodo) to obtain a DOI for a release
+
+-   Platforms like GitHub and GitLab offer **issue tracking**, **code review**, and **CI/CD**
+
+-   `.gitignore` keeps large/sensitive files out of the repository
+
+-   Good commit messages serve as a **lab notebook**
+:::
+
+------------------------------------------------------------------------
+
+## Tips for a clean Git history
+
+::: incremental
+-   Commit **often** and in **logical units** — one concept per commit
+
+-   Write **informative commit messages** (imperative mood: "Add figure 3", not "stuff")
+
+-   Use a `.gitignore` to exclude generated files, large data, credentials
+
+-   Prefer **topic branches** over committing directly to `main`
+
+-   Tag **releases** that correspond to paper submissions or milestones
+:::
+
+------------------------------------------------------------------------
+
+## Additional Resources
+
+-   Official Git documentation: <https://git-scm.com/doc>
+-   The Turing Way — Version Control: <https://the-turing-way.netlify.app/reproducible-research/vcs>
+-   Happy Git with R (Jenny Bryan): <https://happygitwithr.com>
+-   GitHub Skills interactive courses: <https://skills.github.com>
+-   CRS workshop materials: <https://crsuzh.pages.uzh.ch/workshop-quarto-2025-unige/>
+
+------------------------------------------------------------------------
+
+## References {.smaller}

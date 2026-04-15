@@ -1,0 +1,385 @@
+---
+title: | 
+  Reproducible Research Workflows \
+  with R and Quarto -- Getting Started
+subtitle: A Workshop by the Center for Reproducible Science and Research Synthesis
+date:  "November 14, 2025"
+date-format: long
+author:
+  - Gorka Fraga González
+  - Fabio Molo
+  - Peter Degen
+  - Samuel Pawel
+editor: source
+preview-links: true
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.8em;
+        color: #29487d;
+      }
+      </style>
+format: 
+  revealjs:
+    menu: true
+    pdf: true
+    smaller: true
+    auto-stretch: false
+    logo: "img/uzh_logo_d_pos_web_assoc.jpg"
+    embed-resources: true
+    progress: true
+    slide-number: true
+    footer: "Center for Reproducible Science and Research Synthesis | [Home](../../index.qmd)"
+    title-slide-attributes:
+      data-background-size: contain
+      data-background-position: bottom
+      data-background-opacity: "0.8"
+bibliography: references.bib
+---
+
+## The Swiss Reproducibility Network Academy
+
+::::: columns
+::: {.column width="80%"}
+-   **Early career** researchers section of the Swiss RN
+
+-   Goal 1: Connect young researchers interested in **reproducibility in Switzerland**
+
+-   Goal 2: Improve reproducibility of research in Switzerland
+
+-   How to join?
+
+    -   young researchers in **Switzerland** (working language: English)
+    -   **interest** in improving research and reproducibility
+    -   **every field** is welcome (diversity is the key!)
+
+-   More information: <https://www.swissrn.org/contents/academy/>
+:::
+
+::: {.column width="20%"}
+![](img/swissrn_logo.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## The Center for Reproducible Science and Research Synthesis
+
+::::: {.columns align="center"}
+::: {.column width="50%"}
+![](img/CRSnew_Logo.png){height="250"}
+
+<https://www.crs.uzh.ch>
+
+:::
+
+::: {.column width="50%" align="top"}
+**Teaching and training**
+
+-   Good Research Practice courses\
+-   Educational resources, e.g., [Primers](https://www.crs.uzh.ch/en/resources/CRS-Primers.html)\
+-   [ReproducibiliTea](https://www.crs.uzh.ch/en/training/ReproducibiliTea.html) journal club
+
+**Research**
+
+-   Evidence synthesis in biomedical research
+-   Open research data
+-   Methods for replication studies
+-   Assessing and improving research  quality
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Computational reproducibility
+
+A (too) simple definition:
+
+[The **same analysis**]{.fragment} [of the **same data**]{.fragment} [produces the **same results**]{.fragment}
+
+\ 
+
+::: fragment
+![@Turing2024](img/Turing-reproducible.png){fig-align="center" width="50%"}
+:::
+------------------------------------------------------------------------
+
+## Example 1
+
+![@samuel2024](img/samuel2024.png){fig-align="center" width="70%"}
+
+::: incremental
+-   Attempted to rerun **22,578 Jupyter notebooks** from 3,467 PubMed publications 
+-   For 10,388 of these, all declared dependencies could be installed successfully
+-   1,203 notebooks ran through without any errors
+-   **879 notebooks (4%)** produced results identical to those reported in the original
+:::
+
+------------------------------------------------------------------------
+
+
+## Example 2
+
+![@Trisovic2022](img/Trisovic2022){fig-align="center" width="70%"}
+
+::: incremental
+-   Attempted to rerun **9,000 R files** associated with 2,000 data sets in Harvard Dataverse
+-   44% ran through without error when when code cleaning was applied
+-   **26% ran through without error**
+:::
+
+::: fragment
+$\rightarrow$ **Computational reproducibility can be challenging in practice!**
+:::
+::: fragment
+$\rightarrow$ **Still optimistic estimates: Code from non-sharing authors likely less reproducible!**
+:::
+------------------------------------------------------------------------
+
+## Structure of this workshop
+
+1.  **Introduction** -- What is dynamic reporting?
+
+2.  **Hands-on** -- How can you use it?
+
+3.  **Sharing and publishing** -- How to share it with others?
+
+4.  **Demonstration of an advanced workflow** -- What else is possible?
+
+::: fragment
+Website with all materials: <https://crsuzh.pages.uzh.ch/workshop-quarto-2025-unige/>
+:::
+------------------------------------------------------------------------
+
+## Context and terminology
+
+<br>
+
+![@theturingwaycommunity2022](img/turingway_reproducible_matrix.jpg){fig-align="center" width="75%"}
+
+------------------------------------------------------------------------
+
+## Computational reproducibility
+
+![](img/reproducible.png){.absolute right="0" top="0" height="75"}
+
+![Inspired by @peng2011 and @Peikert2021](img/comp-repro-spectrum.png)
+
+------------------------------------------------------------------------
+
+## Replicability: Example
+
+![](img/replicable.png){.absolute right="0" top="0" height="75"}
+
+![@opensciencecollaboration2015](img/replicability_open_science_collaboration.jpeg){fig-align="center" width="640"}
+
+------------------------------------------------------------------------
+
+## Robustness: Example
+
+![](img/robust.png){.absolute right="0" top="0" height="75"}
+
+::::: {.columns align="center"}
+::: {.column width="50%"}
+![@Gould2025](img/ecology_1.png)
+:::
+
+::: {.column width="50%"}
+![](img/ecology_2.png){height="400"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Generalizability
+
+![](img/generalizable.png){.absolute right="0" top="0" height="75"}
+
+<br>
+
+
+![@Turing2024](img/Turing-generalisable.png){fig-align="center" width="50%"}
+
+::: fragment
+$\rightarrow$ **Reproducibility + Robustness + Replicability necessary for Generalizabilty!**
+:::
+
+------------------------------------------------------------------------
+
+## Every step counts
+
+:::::::::::: {.columns align="center"}
+:::::: fragment
+::::: {.columns align="center"}
+::: {.column width="72%"}
+But reproducible research is hard and may feel overwhelming
+:::
+
+::: {.column width="28%"}
+
+:::
+:::::
+::::::
+
+::::::: fragment
+:::::: {.columns align="center"}
+:::: {.column width="60%"}
+Do not despair! With every step...
+
+::: incremental
+-   you are already **one step ahead**
+-   you **already improve** the quality of your research <br> (and of your life)
+-   you learn **broadly applicable technical skills**
+:::
+::::
+
+::: {.column width="40%"}
+![@Turing2024](img/Turing-evolving.png){fig-align="center" width="100%"}
+:::
+::::::
+:::::::
+::::::::::::
+
+------------------------------------------------------------------------
+
+## A non-dynamic reporting workflow
+
+![](img/non-dynamic-workflow.jpg)
+
+------------------------------------------------------------------------
+
+## Typical problems
+
+:::::: {.columns align="center"}
+::: {.column width="40%" align="top"}
+![](img/dependencies.png){height="400"}
+:::
+
+:::: {.column width="60%"}
+::: incremental
+-   **Unclear** execution order
+
+-   **Time-consuming** copy-pasting
+
+-   **Error-prone** copy-pasting
+
+<!-- -   unclear further processing of images and tables\ -->
+:::
+::::
+::::::
+
+------------------------------------------------------------------------
+
+## Dynamic reporting: The ambition {.center}
+
+[`data` $\rightarrow$ dynamic reporting file $\rightarrow$ `manuscript`]{style="font-size: 1.5em;"}
+
+------------------------------------------------------------------------
+
+## A dynamic reporting workflow
+
+![](img/dynamic-workflow.jpg)
+
+------------------------------------------------------------------------
+
+## Components of a dynamic report
+
+![](img/dynamic_reporting_components.png)
+
+------------------------------------------------------------------------
+
+## Text: common markup languages
+
+![](img/markup-languages.png)
+
+------------------------------------------------------------------------
+
+## Some implementations - history
+
+\
+\
+
+![](img/implementation-timeline.png){width="80%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Some implementations
+
+\
+\
+
+|   | File | Code | Markup | Output formats |
+|---------------|---------------|---------------|---------------|---------------|
+| Sweave/knitr | .Rnw | R | LaTeX | pdf, tex |
+| R Markdown | .Rmd | R | Markdown | pdf, html, tex, docx, pptx |
+| Jupyter Notebook | .ipynb | Julia, Python, R | Markdown | pdf, html, tex, py, ... |
+| Quarto | .qmd | Julia, Python, R | Markdown | pdf, html, tex, docx, pptx, ... |
+
+: {.striped tbl-colwidths="\[29,10,26,18,38\]"}
+
+------------------------------------------------------------------------
+
+## Why Quarto?
+
+::::: columns
+::: {.column width="75%"}
+-   **Open source**
+-   **Modern**, with new features being developed
+-   **Easy-to-use**
+-   **Multiple programming languages** (e.g., R, Python, Julia)
+-   **Multiple editors/IDEs** (e.g., RStudio, VS Code)
+-   **General-purpose** scientific publishing system (e.g., articles, slides, websites)
+:::
+
+::: {.column width="25%"}
+![[<https://quarto.org/quarto.png>]{style="font-size:0.6em"}](img/quarto.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Quarto in RStudio
+
+![](img/quarto-rstudio-example-html.jpg){fig-align="center" width="82%"}
+
+------------------------------------------------------------------------
+
+## Quarto in RStudio: PDF output
+
+![](img/quarto-rstudio-example-pdf.png){fig-align="center" width="82%"}
+
+------------------------------------------------------------------------
+
+## Quarto in RStudio: MS Word output
+
+![](img/quarto-rstudio-example-word.png){fig-align="center" width="82%"}
+
+------------------------------------------------------------------------
+
+## Quarto -- where to start?
+
+1.  Install Quarto (<https://quarto.org/docs/get-started/>)
+
+2.  Set up a minimal Quarto workflow for one of your projects
+
+3.  Document your steps, read guides, ask for help
+
+4.  Live a dynamic and reproducible life
+
+------------------------------------------------------------------------
+
+## Additional Resources
+
+-   CRS Primer on dynamic reporting: <https://doi.org/10.5281/zenodo.7565735>\
+-   Quarto intro tutorial: <https://quarto.org/docs/get-started/hello/rstudio.html>\
+-   Quarto authoring tutorial: <https://quarto.org/docs/get-started/authoring/>\
+-   Quarto article layout: <https://quarto.org/docs/authoring/article-layout.html>\
+-   R4DS chapter on Quarto: <https://r4ds.hadley.nz/quarto>\
+-   Yihui Xie's blog post: [With Quarto coming, is R Markdown going away? No.](https://yihui.org/en/2022/04/quarto-r-markdown/)\
+-   Reproducible manuscripts with Quarto: [Slides by Mine Cetinkaya-Rundel](https://mine.quarto.pub/manuscripts-conf23/#/title-slide)\
+-   Quarto/RMarkdown -- What's different?: [Slides by Ted Laderas](https://laderast.github.io/qmd_rmd/#/title-slide)
+
+------------------------------------------------------------------------
+
+## References {.smaller}

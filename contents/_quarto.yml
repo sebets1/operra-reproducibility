@@ -1,45 +1,73 @@
 project:
   type: website
-            
+
 website:
     title: Home
     page-navigation: true
     back-to-top-navigation: true
-    page-footer:        
+    page-footer:
         left: |
           Made with [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org/) \
           \ by the [Center for Reproducible Science and Research Synthesis](https://www.crs.uzh.ch/en.html)
-        
-       
+
+
         right: |
            Free under the [CC BY international license 4.0 ](https://creativecommons.org/licenses/by/4.0/). \
            \ Source code on [![](https://images.ctfassets.net/xz1dnu24egyd/1hnQd13UBU7n5V0RsJcbP3/769692e40a6d528e334b84f079c1f577/gitlab-logo-100.png){fig-alt="Git" width=65px}](https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-unige)
-           
-           
+
+
     favicon: 'assets/CRSnew_Logo.svg'
-    
+
     site-url: https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-unige
     repo-url: https://gitlab.uzh.ch/crsuzh/workshop-quarto-2025-unige
-    
+
     navbar:
         collapse-below: lg
-        
-        right:                  
-          - text: "Instructions"            
+
+        left:
+          - text: "Instructions"
             href: ./instructions/index.qmd
-          - text: "Intro"
-            href: ./slides_intro/index.qmd
-          - text: "Hands-On (R)"
-            href: ./demo_R/index.qmd
-          - text: "Hands-On (Python)"
-            href: ./demo_py/index.qmd
-          - text: "Sharing/Publishing"
-            href: ./slides_sharing/index.qmd
-          - text: "Advanced"
-            href: ./slides_advanced/index.qmd
+
+        right:
+          - text: "1. Version Control"
+            menu:
+              - text: "Slides"
+                href: ./module_1_version_control/slides/index.qmd
+              - text: "Hands-On Demo"
+                href: ./module_1_version_control/demo/index.qmd
+
+          - text: "2. Dynamic Reporting"
+            menu:
+              - text: "Slides"
+                href: ./module_2_dynamic_reporting/slides/index.qmd
+              - text: "Hands-On Demo (R)"
+                href: ./module_2_dynamic_reporting/demo_R/index.qmd
+              - text: "Hands-On Demo (Python)"
+                href: ./module_2_dynamic_reporting/demo_py/index.qmd
+
+          - text: "3. Workflow Management"
+            menu:
+              - text: "Slides"
+                href: ./module_3_workflow_management/slides/index.qmd
+              - text: "Hands-On Demo"
+                href: ./module_3_workflow_management/demo/index.qmd
+
+          - text: "4. Containers"
+            menu:
+              - text: "Slides"
+                href: ./module_4_containers/slides/index.qmd
+              - text: "Hands-On Demo"
+                href: ./module_4_containers/demo/index.qmd
+
+          - text: "5. Sharing & Publishing"
+            menu:
+              - text: "Slides"
+                href: ./module_5_sharing_publishing/slides/index.qmd
+              - text: "Hands-On Demo"
+                href: ./module_5_sharing_publishing/demo/index.qmd
 
 format:
-    html:         
+    html:
         grid:
           sidebar-width: 350px
         theme:
@@ -49,5 +77,8 @@ format:
         toc: true
         toc-expand: 4
         code-copy: true
+
+execute:
+  jupyter: quarto-env
 
 freeze: auto

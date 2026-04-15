@@ -1,0 +1,57 @@
+---
+title: "Hands-On Demo: Software Containers"
+subtitle: "Building and running Docker containers for reproducible research"
+author:
+  - name: "Fabio Molo"
+    orcid: 0000-0001-9320-5854
+format:
+  html:
+    toc-depth: 4
+execute:
+  eval: false
+---
+
+This hands-on demo requires Docker Desktop (available at <https://www.docker.com/products/docker-desktop/>). Visit the [instructions](../../instructions/index.qmd) page for setup details.
+
+# Getting started with Docker
+
+<!-- TODO: add introductory exercises here -->
+
+## Exercise 1: Pulling and running an existing image
+
+<!-- TODO -->
+
+## Exercise 2: Writing a Dockerfile
+
+<!-- TODO -->
+
+## Exercise 3: Building and running your own image
+
+<!-- TODO -->
+
+# Containers for R research
+
+## Exercise 4: Using a Rocker image
+
+<!-- TODO -->
+
+## Exercise 5: Installing packages inside a container
+
+<!-- TODO -->
+
+## Exercise 6: Mounting your project directory
+
+<!-- TODO -->
+
+# Putting it all together
+
+## Exercise 7: Combining Git, Make, and Docker
+
+<!-- TODO -->
+
+# Additional Resources
+
+-   Docker documentation: <https://docs.docker.com/get-started/>
+-   Rocker project: <https://rocker-project.org/>
+-   CRS Primer on Software Containers: <https://doi.org/10.5281/zenodo.13757230>
+-   The Turing Way — Reproducible Environments: <https://the-turing-way.netlify.app/reproducible-research/renv>

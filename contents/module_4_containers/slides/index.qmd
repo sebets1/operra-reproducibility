@@ -1,0 +1,223 @@
+---
+title: "Software Containers"
+subtitle: "Encapsulating computational environments with Docker"
+author: "Samuel Pawel, Peter Degen, Fabio Molo, Gorka Fraga González"
+date-format: long
+preview-links: true
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.8em;
+        color: #29487d;
+      }
+      </style>
+format:
+  revealjs:
+    menu: true
+    pdf: true
+    code-line-numbers: false
+    smaller: true
+    fig-align: left
+    logo: "img/uzh_logo_d_pos_web_assoc.jpg"
+    embed-resources: true
+    progress: true
+    slide-number: true
+    footer: "Center for Reproducible Science and Research Synthesis | [Home](../../index.qmd)"
+    title-slide-attributes:
+      data-background-size: contain
+      data-background-position: bottom
+      data-background-opacity: "0.8"
+bibliography: references.bib
+nocite: |
+  @Nust2020
+  @Boettiger2017
+  @FragaGonzalez2024
+  @Peikert2021
+---
+
+## The problem: software environments change
+
+::: incremental
+-   Code that runs today may **not run next year**:
+    -   `Today`: R 4.5, ggplot2 3.5.2 → `Next year`: R ❓, ggplot2 ❓
+
+-   Different collaborators may have **different software versions** installed
+
+-   "Works on my machine" 😅
+
+-   Journals increasingly require **computational reproducibility**
+
+. . .
+
+**Solution: software containers (e.g., Docker)**
+:::
+
+------------------------------------------------------------------------
+
+## Containerization with Docker
+
+::::::: columns
+::::: {.column width="75%"}
+::: incremental
+-   **Software containers** encapsulate the full computational environment
+
+-   Computational environment components:
+
+    -   Operating system
+    -   R and R packages
+    -   Numerical software libraries (e.g., LAPACK, BLAS)
+    -   other software (e.g., LaTeX, Java)
+
+-   **Docker** is a popular tool for containerization
+
+-   **Rocker** is a Docker image for R (<https://rocker-project.org/>)
+:::
+
+::: fragment
+Dockerfile
+
+``` dockerfile
+# Uses a Rocker container image with R version 4.4
+FROM rocker/verse:4.4
+
+# Install R package versions at time when R 4.4 was up-to-date
+RUN install2.r ggplot2 dplyr kableExtra
+```
+:::
+:::::
+
+::: {.column width="25%"}
+![[<https://commons.wikimedia.org/wiki/File:Docker-svgrepo-com.svg>]{style="font-size:0.7em"}](img/docker.png)
+:::
+:::::::
+
+------------------------------------------------------------------------
+
+## Containers vs. virtual machines
+
+| | Container | Virtual Machine |
+|---|---|---|
+| **Isolation** | Process-level | Full OS |
+| **Size** | MB | GB |
+| **Startup** | Seconds | Minutes |
+| **Portability** | High | Moderate |
+| **Overhead** | Low | High |
+
+::: fragment
+Containers share the host OS kernel — they are **lightweight** and **fast**.
+:::
+
+------------------------------------------------------------------------
+
+## Key Docker concepts
+
+| Concept | Description |
+|---|---|
+| **Image** | A read-only template (built from a `Dockerfile`) |
+| **Container** | A running instance of an image |
+| **Dockerfile** | Text file with instructions to build an image |
+| **Layer** | Each instruction in a Dockerfile creates a cached layer |
+| **Registry** | Repository of images (e.g., Docker Hub, GitHub Container Registry) |
+| **Volume** | Mount a host directory inside a container |
+
+------------------------------------------------------------------------
+
+## Building and running a container
+
+``` bash
+# Build an image from a Dockerfile in the current directory
+docker build -t my-analysis .
+
+# Run a container interactively
+docker run --rm -it my-analysis bash
+
+# Run with a mounted project directory
+docker run --rm \
+  -v "$(pwd)":/home/rstudio/project \
+  -p 8787:8787 -e PASSWORD=rstudio \
+  my-analysis
+
+# Open RStudio Server at http://localhost:8787
+```
+
+------------------------------------------------------------------------
+
+## Rocker: Docker for R
+
+``` dockerfile
+# Start from a versioned Rocker image (R + RStudio + LaTeX + Quarto)
+FROM rocker/verse:4.4.2
+
+# Install additional R packages pinned via renv or install2.r
+RUN install2.r --error \
+    ggplot2 \
+    dplyr \
+    kableExtra \
+    renv
+```
+
+::: fragment
+Rocker images available at <https://rocker-project.org/>:
+
+-   `rocker/r-ver` — R only
+-   `rocker/rstudio` — R + RStudio Server
+-   `rocker/verse` — + tidyverse + LaTeX + Quarto
+-   `rocker/ml` — + machine learning libraries
+:::
+
+------------------------------------------------------------------------
+
+## Putting it all together
+
+:::::: columns
+::: {.column width="55%"}
+![Modified from @Peikert2021](img/workflow-quarto.png)
+:::
+
+:::: {.column width="45%"}
+::: fragment
+Terminal
+
+``` {.bash style="font-size:0.85em"}
+# clone git repository
+git clone git@gitlab.uzh.ch:crsuzh/zurich-names.git
+
+# enter project repository
+cd zurich-names
+
+# run automated analyses inside Docker
+make docker-report
+```
+
+→ `report.html`
+
+[https://gitlab.uzh.ch/crsuzh/zurich-names](https://gitlab.uzh.ch/crsuzh/zurich-names){style="font-size:0.65em"}
+:::
+::::
+::::::
+
+------------------------------------------------------------------------
+
+## CRS Primer on Software Containers
+
+:::::: columns
+:::: {.column width="45%"}
+![<https://doi.org/10.5281/zenodo.13757230>](img/primer-containers.png)
+::::
+::::::
+
+------------------------------------------------------------------------
+
+## Additional Resources
+
+-   Docker documentation: <https://docs.docker.com/get-started/>
+-   Rocker project: <https://rocker-project.org/>
+-   @Nust2020: The Rockerverse — packages and applications for containerization with R
+-   @Boettiger2017: An introduction to Rocker
+-   The Turing Way — Reproducible Environments: <https://the-turing-way.netlify.app/reproducible-research/renv>
+-   @Peikert2021: combining Git, Make, and Docker in a full reproducible workflow
+
+------------------------------------------------------------------------
+
+## References {.smaller}

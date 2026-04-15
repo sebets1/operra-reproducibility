@@ -1,47 +1,64 @@
 ---
-title: Reproducible Research Workflows with Quarto and R - Getting Started
-subtitle: Workshop at UNIGE
+title: Reproducible Research Workflows — Extended Workshop
 sidebar: false
 date: last-modified
-author: 
+author:
   - name: "Peter Degen"
     orcid: 0009-0004-0706-9200
-    
+
   - name: "Gorka Fraga González"
     orcid: 0000-0002-1857-8607
-    
+
   - name: "Fabio Molo"
     orcid: 0000-0001-9320-5854
 
   - name: "Samuel Pawel"
     orcid: 0000-0003-2779-320X
 
-listing:
-  type: grid
-  id: main-listing
-  fields: [title]
-  grid-columns: 3
-  sort: false  
-  contents: 
-    - /instructions/*.qmd
-    - /slides_intro/*.qmd
-    - /demo_R/*.qmd
-    - /demo_py/*.qmd
-    - /slides_sharing/*.qmd
-    - /slides_advanced/*.qmd
-    
 toc: false
 page-layout: full
 ---
 
-- Date: 14 November 2025, 13:45 -- 17:00
-- Location: University of Geneva , Uni Dufour room 408 or via Zoom: <https://unige.zoom.us/j/66548827127> (Meeting ID: 665 4882 7127)
+This workshop, organized by the [Center for Reproducible Science and Research Synthesis (CRS)](https://www.crs.uzh.ch/en.html) of the University of Zurich, introduces participants to a full reproducible research workflow. Each module combines conceptual slides with a hands-on demo.
 
-In this workshop, the Center for Reproducible Science and Research Synthesis (CRS) of the University of Zurich will introduce the participants to writing reproducible manuscripts and analyses using R and Quarto. Such dynamic reporting tools help researchers make their analyses transparent, shareable, and reproducible, and avoid error-prone and laborious copying and pasting of numbers, tables, figures, and other results.
+# Modules
 
-The workshop will begin with an introductory presentation on the purpose and fundamentals of dynamic reporting. The second part is hands-on, and participants are supported to follow along on their own computers and produce a minimally viable reproducible report. The hands-on demo is done in R but a version using Python is also provided. Finally, we will show best practices for sharing and publishing, and show some advanced workflows using version control and software containerization.
+## [1. Version Control with Git](module_1_version_control/slides/index.qmd)
 
-# Installation and Slides
+Tracking changes, collaborating, and archiving research with Git.
 
-::: {#main-listing}
-:::
+- [Slides](module_1_version_control/slides/index.qmd)
+- [Hands-On Demo](module_1_version_control/demo/index.qmd)
+
+## [2. Dynamic Reporting with R and Quarto](module_2_dynamic_reporting/slides/index.qmd)
+
+Writing reproducible manuscripts and analyses using Quarto.
+
+- [Slides](module_2_dynamic_reporting/slides/index.qmd)
+- [Hands-On Demo (R)](module_2_dynamic_reporting/demo_R/index.qmd)
+- [Hands-On Demo (Python)](module_2_dynamic_reporting/demo_py/index.qmd)
+
+## [3. Workflow Management](module_3_workflow_management/slides/index.qmd)
+
+Automating multi-step computational pipelines with Make and targets.
+
+- [Slides](module_3_workflow_management/slides/index.qmd)
+- [Hands-On Demo](module_3_workflow_management/demo/index.qmd)
+
+## [4. Software Containers](module_4_containers/slides/index.qmd)
+
+Encapsulating computational environments with Docker and Rocker.
+
+- [Slides](module_4_containers/slides/index.qmd)
+- [Hands-On Demo](module_4_containers/demo/index.qmd)
+
+## [5. Sharing and Publishing](module_5_sharing_publishing/slides/index.qmd)
+
+Publishing reproducible reports with GitLab Pages, Zenodo, and OSF.
+
+- [Slides](module_5_sharing_publishing/slides/index.qmd)
+- [Hands-On Demo](module_5_sharing_publishing/demo/index.qmd)
+
+---
+
+Visit the [Instructions](instructions/index.qmd) page for software installation and setup.

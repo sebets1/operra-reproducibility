@@ -1,0 +1,52 @@
+---
+title: "Hands-On Demo: Version Control with Git"
+subtitle: "Practical exercises for tracking and sharing research with Git"
+author:
+  - name: "Fabio Molo"
+    orcid: 0000-0001-9320-5854
+format:
+  html:
+    toc-depth: 4
+execute:
+  eval: false
+---
+
+This hands-on demo requires Git. Visit the [instructions](../../instructions/index.qmd) page to learn how to install it.
+
+# Getting started
+
+<!-- TODO: add introductory exercises here -->
+
+## Exercise 1: Initialising a repository
+
+<!-- TODO -->
+
+## Exercise 2: Making commits
+
+<!-- TODO -->
+
+## Exercise 3: Branching and merging
+
+<!-- TODO -->
+
+# Working with remotes
+
+## Exercise 4: Cloning a repository
+
+<!-- TODO -->
+
+## Exercise 5: Push and pull
+
+<!-- TODO -->
+
+# Git for research
+
+## Exercise 6: Creating a release and archiving on Zenodo
+
+<!-- TODO -->
+
+# Additional Resources
+
+-   Happy Git with R: <https://happygitwithr.com>
+-   The Turing Way — Version Control: <https://the-turing-way.netlify.app/reproducible-research/vcs>
+-   GitHub Skills: <https://skills.github.com>

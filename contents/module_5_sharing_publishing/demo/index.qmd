@@ -1,0 +1,55 @@
+---
+title: "Hands-On Demo: Sharing and Publishing"
+subtitle: "Publishing reproducible reports with GitLab Pages and Zenodo"
+author:
+  - name: "Gorka Fraga González"
+    orcid: 0000-0002-1857-8607
+  - name: "Fabio Molo"
+    orcid: 0000-0001-9320-5854
+format:
+  html:
+    toc-depth: 4
+execute:
+  eval: false
+---
+
+This hands-on demo requires Git and a GitLab (or GitHub) account. Visit the [instructions](../../instructions/index.qmd) page for setup details.
+
+# Publishing with GitLab Pages
+
+<!-- TODO: add introductory exercises here -->
+
+## Exercise 1: Setting up a Quarto website project
+
+<!-- TODO -->
+
+## Exercise 2: Configuring a CI/CD pipeline for GitLab Pages
+
+<!-- TODO -->
+
+## Exercise 3: Making your site public
+
+<!-- TODO -->
+
+# Persistent identifiers and archiving
+
+## Exercise 4: Creating a GitLab release
+
+<!-- TODO -->
+
+## Exercise 5: Archiving to Zenodo and obtaining a DOI
+
+<!-- TODO -->
+
+# Preregistration
+
+## Exercise 6: Setting up a preregistration on OSF
+
+<!-- TODO -->
+
+# Additional Resources
+
+-   Quarto websites documentation: <https://quarto.org/docs/websites/>
+-   GitLab Pages documentation: <https://docs.gitlab.com/ee/user/project/pages/>
+-   Zenodo: <https://zenodo.org>
+-   Open Science Framework (OSF): <https://osf.io>
