@@ -24,7 +24,7 @@ example_data.csv
                                                   │
                                 │
                                 ▼
-                 3_pandas_process.py  (Python/pandas)  →  3_processed.csv   # add a pandas-derived feature
+                 3_polars_process.py  (Python/polars)  →  3_processed.csv   # add a polars-derived feature
                                                   │
                             ┌─────────────────────┘
                             ▼
@@ -33,7 +33,7 @@ example_data.csv
 
 You do **not** need to understand the Python or R code in detail — the focus is on the workflow layer around them.
 
-For the workshop, step 3 intentionally introduces an extra dependency (`pandas`) that may not be installed by default.
+For the workshop, step 3 intentionally introduces an extra dependency (`polars`) that may not be installed by default.
 
 ---
 

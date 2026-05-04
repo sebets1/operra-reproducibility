@@ -4,7 +4,7 @@
  * Minimal workshop demo pipeline:
  * 1. Python centres the values in example_data.csv  → 1_derived.csv
  * 2. R reads 1_derived.csv and produces summary stats → 2_summary.txt
- * 3. Python (pandas) processes 1_derived.csv           → 3_processed.csv
+ * 3. Python (polars) processes 1_derived.csv           → 3_processed.csv
  * 4. Quarto collects outputs into an HTML report       → 4_report.html
  *
  * Steps 1 and 2 are sequential: R depends on Python's output.
@@ -15,7 +15,7 @@ params.outdir = (params.outdir ?: 'results')
 workflow {
   def derived = PY_DERIVE( file('example_data.csv'), file('1_derive.py') )
   def summary = R_SUMMARY( derived, file('2_summary.R') )
-  def processed = PANDAS_PROCESS( derived, summary, file('3_pandas_process.py') )
+  def processed = POLARS_PROCESS( derived, summary, file('3_polars_process.py') )
 
   FINAL_REPORT(
     file('4_report.qmd'),
@@ -58,20 +58,20 @@ process R_SUMMARY {
   """
 }
 
-process PANDAS_PROCESS {
+process POLARS_PROCESS {
   publishDir "${params.outdir}", mode: 'copy'
 
   input:
   path "1_derived.csv"
   path "2_summary.txt"
-  path "3_pandas_process.py"
+  path "3_polars_process.py"
 
   output:
   path "3_processed.csv"
 
   script:
   """
-  python3 3_pandas_process.py --input 1_derived.csv --summary 2_summary.txt --output 3_processed.csv
+  python3 3_polars_process.py --input 1_derived.csv --summary 2_summary.txt --output 3_processed.csv
   """
 }
 

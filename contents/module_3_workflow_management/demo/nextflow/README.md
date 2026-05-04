@@ -13,14 +13,14 @@ example_data.csv
                          2_summary.R  (R)  →  2_summary.txt
                                                    │
                                                    ▼
-               3_pandas_process.py  (Python/pandas)  →  3_processed.csv
+               3_polars_process.py  (Python/polars)  →  3_processed.csv
                                                    │
                               ┌─────────────────────┘
                               ▼
                         4_report.qmd  (Quarto)  →  4_report.html
 ```
 
-Step 3 intentionally introduces an additional dependency (`pandas`) that may not be installed by default.
+Step 3 intentionally introduces an additional dependency (`polars`) that may not be installed by default.
 
 ## Running the demo
 
@@ -62,7 +62,7 @@ For example, if you edit `2_summary.R`:
 ```
  1_derive.py  ✔ cached   (no re-run)
  2_summary.R  ↻ re-runs  (you changed this)
- 3_pandas_process.py ↻ re-runs  (depends on 1_derived.csv)
+ 3_polars_process.py ↻ re-runs  (depends on 1_derived.csv)
  4_report.qmd ↻ re-runs  (depends on downstream outputs)
 ```
 

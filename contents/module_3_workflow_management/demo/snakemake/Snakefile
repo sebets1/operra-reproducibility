@@ -1,7 +1,7 @@
 # Minimal workshop demo pipeline:
 # 1. Python centres the values in example_data.csv  → results/1_derived.csv
 # 2. R reads 1_derived.csv and produces summary stats → results/2_summary.txt
-# 3. Python (pandas) processes 1_derived.csv            → results/3_processed.csv
+# 3. Python (polars) processes 1_derived.csv            → results/3_processed.csv
 # 4. Quarto collects outputs into an HTML report        → results/4_report.html
 #
 # Run with:  snakemake --cores 1
@@ -44,11 +44,11 @@ rule final_report:
         "quarto render {input.qmd} --to html --output-dir results/"
 
 
-rule pandas_process:
+rule polars_process:
     input:
         data="work/1_derived.csv",
         summary="work/2_summary.txt",
-        script="3_pandas_process.py",
+        script="3_polars_process.py",
     output:
         "work/3_processed.csv",
     shell:

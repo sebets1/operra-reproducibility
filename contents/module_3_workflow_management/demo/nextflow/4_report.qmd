@@ -35,7 +35,7 @@ produced by the earlier pipeline steps.
 
 ```
 
-## Pandas-Processed Data (`3_processed.csv`)
+## Polars-Processed Data (`3_processed.csv`)
 
 ```csv
 
