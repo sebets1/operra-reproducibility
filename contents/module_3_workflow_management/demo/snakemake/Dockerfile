@@ -15,6 +15,7 @@ WORKDIR /workspace
 
 # The base image provides Python and Snakemake. Add R from conda-forge.
 RUN micromamba install -y -n base -c conda-forge \
+      git \
       r-base \
     && micromamba clean -a -y
 

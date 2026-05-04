@@ -21,6 +21,7 @@ RUN yum install -y \
       bzip2 \
       gzip \
       ca-certificates \
+      git \
     && yum clean all \
     && rm -rf /var/cache/yum
 

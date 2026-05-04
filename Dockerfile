@@ -4,7 +4,7 @@ RUN install2.r ggplot2 dplyr kableExtra
 
 COPY requirements.txt . 
 
-RUN apt-get update && apt-get install -y python3-pip && \
+RUN apt-get update && apt-get install -y python3-pip git && \
     pip3 install --no-cache-dir --break-system-packages -r requirements.txt && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
