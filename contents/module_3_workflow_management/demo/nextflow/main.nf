@@ -90,6 +90,6 @@ process FINAL_REPORT {
 
   script:
   """
-  quarto render 4_report.qmd --to html --output 4_report.html --output-dir .
+  quarto render 4_report.qmd --to html --output 4_report.html
   """
 }

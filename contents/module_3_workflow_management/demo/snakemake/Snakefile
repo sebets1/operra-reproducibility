@@ -57,5 +57,7 @@ rule final_report:
         processed=f"{D}/work/3_processed.csv",
     output:
         f"{D}/results/4_report.html",
+    params:
+        basedir=D,
     shell:
-        "quarto render {input.qmd} --to html --output-dir $(dirname {output})"
+        "cd {params.basedir} && quarto render 4_report.qmd --to html && mkdir -p results && mv 4_report.html results/"
