@@ -38,6 +38,15 @@ snakemake --cores 1
 #   results/4_report.html
 ```
 
+If you run `snakemake` from outside `demo/snakemake/`, pass an explicit working directory and Snakefile:
+
+```bash
+snakemake \
+  --directory /workspace/contents/module_3_workflow_management/demo/snakemake \
+  --snakefile /workspace/contents/module_3_workflow_management/demo/snakemake/Snakefile \
+  --cores 1
+```
+
 ## Re-running after changes
 
 Snakemake tracks whether output files are newer than their inputs.

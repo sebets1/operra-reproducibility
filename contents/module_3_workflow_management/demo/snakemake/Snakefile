@@ -6,10 +6,6 @@
 #
 # Run with:  snakemake --cores 1
 
-from pathlib import Path
-
-workdir: str(Path(__file__).resolve().parent)
-
 rule all:
     input:
         "results/4_report.html"

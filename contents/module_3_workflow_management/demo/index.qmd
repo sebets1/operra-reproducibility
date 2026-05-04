@@ -101,6 +101,15 @@ docker compose exec snakemake bash
 snakemake --cores 1
 ```
 
+If you run Snakemake from outside `demo/snakemake/`, pass an explicit directory and Snakefile:
+
+```bash
+snakemake \
+  --directory /workspace/contents/module_3_workflow_management/demo/snakemake \
+  --snakefile /workspace/contents/module_3_workflow_management/demo/snakemake/Snakefile \
+  --cores 1
+```
+
 Results are written to `results/4_report.html`.
 
 ### Re-running after a change
