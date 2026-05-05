@@ -2,9 +2,7 @@ version: "3.9"
 
 services:
   pyverse:
-    build:
-      context: .
-    image: pyverse
+    image: ghcr.io/a1eksb/reproducability:rstudio
     container_name: pyverse
     ports:
       - "8787:8787"

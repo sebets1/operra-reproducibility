@@ -1,0 +1,4 @@
+services:
+  pyverse:
+    image: ghcr.io/a1eksb/reproducability:rstudio
+    build: !reset null

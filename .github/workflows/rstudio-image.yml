@@ -1,12 +1,14 @@
-name: Docker
+name: RStudio (pyverse) Image
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - Dockerfile.renku
+      - Dockerfile
       - requirements.txt
+      - docker-compose.yaml
+      - .github/workflows/rstudio-image.yml
 
 jobs:
   build-and-push:
@@ -16,7 +18,9 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+
       - uses: docker/setup-buildx-action@v3
+
       - uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -26,9 +30,11 @@ jobs:
       - uses: docker/build-push-action@v6
         with:
           context: .
-          file: Dockerfile.renku
+          file: Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: |
+            ghcr.io/${{ github.repository }}:rstudio
+            ghcr.io/${{ github.repository }}:rstudio-${{ github.sha }}
           platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max

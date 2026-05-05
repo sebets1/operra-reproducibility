@@ -1,6 +1,9 @@
 {
   "name": "Operra - RStudio (project-wide)",
-  "dockerComposeFile": ["../../docker-compose.yaml"],
+  "dockerComposeFile": [
+    "../../docker-compose.yaml",
+    "docker-compose.codespaces.yaml"
+  ],
   "service": "pyverse",
   "workspaceFolder": "/home/rstudio/project",
   "shutdownAction": "stopCompose",
@@ -19,4 +22,3 @@
     }
   }
 }
-
