@@ -1,2 +1,0 @@
-- [x] Step 1: Add GHCR pull override for Codespaces
-- [ ] Step 2: (Optional) Document/prebuild notes
