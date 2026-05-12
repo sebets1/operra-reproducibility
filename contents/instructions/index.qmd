@@ -5,12 +5,33 @@ date: today
 
 ---
 
-## Option 1: Local installation
+Make sure your computer meets the requirements of at least one of the following options prior to the workshop. Option 1 is the simplest and our recommended setup.
 
-You need access to a computer with the following software installed:
+## Option 1: Github Codespaces
 
-## Option 2: Cloud environement
+Requirements:
 
-Make sure you have an account on the following platforms:
+- A personal [Github](https://github.com) account
 
+With this option, you will work in a Github codespace. 
 
+::: {.callout-note} 
+Note that codespace usage is free up to 120 hours per month (at the time of writing). More in the [Github Docs here](https://docs.github.com/en/billing/concepts/product-billing/github-codespaces).
+:::
+
+## Option 2: Work locally with Docker compose
+
+Requirements:
+
+- [Git](https://git-scm.com/install/) installed
+- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed
+
+## Option 3: Work locally "fully by hand"
+
+Requirements:
+
+- [Git](https://git-scm.com/install/) installed
+- [Docker](https://docs.docker.com/get-docker/) installed
+- [RStudio](https://posit.co/download/rstudio-desktop) or [Visual Studio Code](https://code.visualstudio.com/) installed
+- [Quarto](https://quarto.org/) installed
+- A [make utility](https://www.gnu.org/software/make/) and [snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html) or [nextflow](https://docs.seqera.io/nextflow/install) installed 
