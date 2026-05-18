@@ -1,20 +1,20 @@
 # SwissRN Workshop on Computational Reproducibility
 
-Part of the OPeR-RA project.
+Part of the OPeR-RA workshop series.
 
-## Open in GitHub Codespaces
+The website for this workshop is: <https://crsuzh.pages.uzh.ch/operra-reproducibility>
 
-<a href="https://codespaces.new/a1eksb/reproducability?quickstart=1&devcontainer_path=.devcontainer%2Frstudio%2Fdevcontainer.json" target="_blank" rel="noopener noreferrer">Open in RStudio Server</a> — Opens RStudio Server for the whole project in your browser. RStudio will open automatically once the environment is ready.
+## Option 1: Open in GitHub Codespaces
 
-The website for this workshop is:
+Open the whole project in RStudio Server in a GitHub Codespace:
 
-## Citation
+<a href="https://codespaces.new/a1eksb/reproducability?quickstart=1&devcontainer_path=.devcontainer%2Frstudio%2Fdevcontainer.json" target="_blank" rel="noopener noreferrer">Open in RStudio Server</a> 
 
-Cite this workshop as: <https://crsuzh.pages.uzh.ch/operra-reproducibility>
+- Select this repository
+- Select `Dev container configuration` as "Operra - RStudio (project-wide)"
+- Create codespace (this may take several minutes)
 
-A BibTeX entry is given by:
-
-## Running Locally via Docker
+## Option 2: Running Locally via Docker
 
 ### Prerequisites
 
@@ -22,7 +22,7 @@ A BibTeX entry is given by:
 
 ### Option A — Docker Compose (recommended)
 
-Builds the image locally and mounts the project directory:
+Clone the repository, then build the image locally and mount the project directory:
 
 ```bash
 docker compose build pyverse --no-cache
@@ -59,3 +59,9 @@ docker run --rm -d \
 Open RStudio Server at [http://localhost:8787](http://localhost:8787) — no login required.
 
 > **Note:** RStudio is bound to `127.0.0.1` only, so it is not accessible from other machines on your network.
+
+## Citation
+
+Cite this workshop as: 
+
+A BibTeX entry is given by:
