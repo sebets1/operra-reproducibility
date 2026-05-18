@@ -219,6 +219,22 @@ Branches are cheap and encourage **experimentation without risk**.
 
 ------------------------------------------------------------------------
 
+## Typical one-time setup
+
+::: incremental
+-   Create a **personal access token** in user settings (with read & write priveleges)
+
+-   **Save** the token (e.g. in a password manager)
+
+-   **Configure your local git** in the Terminal:
+    -   `git config --global user.email "you@example.com"`
+    -   `git config --global user.name "Your Name"`
+
+-   When asked, fill in the token as `password` 
+:::
+
+------------------------------------------------------------------------
+
 ## Additional Resources
 
 -   Official Git documentation: <https://git-scm.com/doc>
