@@ -19,9 +19,9 @@ execute:
 bibliography: references.bib
 ---
 
-This hands-on requires R and Quarto. Visit the [instructions](../../instructions/index.qmd) page to learn how to install them.
+This hands-on requires R and Quarto. Visit the [instructions](../../instructions/index.qmd) page to learn how to use them in a Github codespace.
 
-# Creating a Quarto file
+# Create a new Quarto file
 
 1)  In the RStudio menu, go to `File > New File > Quarto document`
 2)  Use the default settings and enter a filename
@@ -33,9 +33,11 @@ This hands-on requires R and Quarto. Visit the [instructions](../../instructions
 
 We will now modify the report with our own content.
 
+First, remove all the content that was added by default by RStudio, from `Content`on downwards. 
+
 # Editing the YAML header
 
-The YAML[^1] header delimited by (`---`) specifies options and metadata of your report. Add information about `author` and `date` (use `last-modified` to always display the latest date) and define the output format as either `pdf` or `html`. Be careful with *indentation*, YAML is sensitive to spacing! The header can be kept simple or it can contain a lot of information. An example:
+The YAML[^1] header delimited by (`---`) specifies options and metadata of your report. Add information about `author` and `date` (use `last-modified` to always display the latest date) and define the output format as `html`. Be careful with *indentation*, YAML is sensitive to spacing! The header can be kept simple or it can contain a lot of information. An example:
 
 [^1]: YAML is an acronym for "Yet Another Markup Language"
 
@@ -47,19 +49,10 @@ date: last-modified # display the date of the last edit
 author: 
   - name: "Author 1"
     orcid: 1234-1234-1234-12345
-    affiliation:
-      - name: "University of Zurich"
-        city: "Zurich"
-  - name: "Author 2"
-    orcid: 5678-5678-5678-5678
-    affiliation:
-      - name: "University of Bern"
-        city: "Bern"
+    affiliation: "University of Zurich"
 format:
   html:
     toc: true # add a table of contents
-    toc-depth: 4 # show level 1-4 subheadings in the table of contents
-  pdf: default
 ---
 ```
 
@@ -72,13 +65,18 @@ format:
 <!-- ::: -->
 
 ::: {.callout-note appearance="minimal"}
-**Optional exercises**
+**Optional exercise**
 
 -   Also add your email and affiliation
--   Render the report both as HTML and PDF
 :::
 
 Re-render your report to see the changes you just made.
+
+::: {.callout-note appearance="minimal"}
+**Optional exercise**
+
+-   Try rendering the report as pdf instead of html. To do this, add `pdf: default` in the YAML header under `format:` at the same indentation level as `html:`.
+:::
 
 ::: {.callout-tip collapse="false"}
 #### Render often
@@ -109,30 +107,7 @@ A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdow
 > An impressive quote
 ```
 
-produces
-
-<h2>This is a title</h2>
-
-<!-- HACK to not have the title in the TOC -->
-
-Two stars will render a word **bold**.
-
-We can also create lists:
-
--   Element 1
--   Element 2
-
-A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
-
-> An impressive quote
-
 This type of text editing is different from WYSIWYG (*What you see is what you get*) editors, such as Microsoft Word. In RStudio, it is possible to switch between the `visual` and `source` modes (topleft corner of the editor). The `source` mode displays the raw code, while the `visual` tab shows a live preview of the formatted document and provides WYSIWYG-like interface. This makes it easier to see how your report will look when rendered and can be useful if you do not know certain Markdown syntax. Nevertheless, we recommend to use the `source` mode as the default as it displays the raw code.
-
-::: {.callout-note appearance="minimal"}
-**Optional exercise**
-
-Include an image in your report. Use the visual mode to shrink it down and see how the code for resizing looks like.
-:::
 
 <!-- ![](https://upload.wikimedia.org/wikipedia/commons/7/74/A-Cat.jpg){fig-align="center" width="273"} -->
 
@@ -183,6 +158,18 @@ datclean <- dat |>
     mutate(sex = ifelse(sex == "weiblich", "female", "male"))
 ```
 
+
+::: {.callout-tip collapse="false"}
+#### Hide warnings in output
+
+You can hide all `R` warnings from the output by adding the following to your YAML header:
+``` yaml
+execute:
+  warning: false
+```
+:::
+
+
 ### Summarizing the data
 
 We first compute the most common name by year and sex.
@@ -196,28 +183,13 @@ summaries <- datclean |>
 
 ### Creating a table
 
-We can create a table summarizing our results using the `kable` function. There is either a basic version of `kable` in the [`knitr` package](https://yihui.org/knitr/), or an extended version in the [`kableExtra` package](https://github.com/haozhu233/kableExtra), which we loaded above.
+We can create a table summarizing our results using the `kable` function. There is either a basic version of `kable` in the [`knitr` package](https://yihui.org/knitr/), or an extended version in the [`kableExtra` package](https://github.com/haozhu233/kableExtra), which we loaded above. See <https://quarto.org/docs/computations/r.html#data-frames> for all options how to display tables from `R`d data frames.
 
 ```{r}
 summaries |>
-  kable(caption = "Most common name of newborns in the city of Zurich by year and sex")
+  kable(caption = "Most common names of newborns in the city of Zurich by year and sex")
 ```
 
-Note that we could also have specified a table caption via the `tbl-cap` chunk option. We could also have specified `df-print: kable` in the YAML header to automatically apply `kable` when printing a data frame. For HTML reports, there is also the `df-print: paged` option that creates an interactive table. See <https://quarto.org/docs/computations/r.html#data-frames> for all possibilities.
-
-```{r}
-#| tbl-cap: "Most common name of newborns in the city of Zurich by year and sex"
-## prints an interactive table if "df-print: paged" in YAML header under html options
-## (only for html report but not for pdf)
-summaries
-```
-
-::: {.callout-note appearance="minimal"}
-**Optional exercises**
-
--   Make a table that displays the number of registered births per year
--   Generate the table via the `df-print: kable` or the `df-print: paged` (when using HTML) option in the YAML header
-:::
 
 ### Plot the data
 
@@ -242,7 +214,7 @@ datclean |>
   theme_minimal()
 ```
 
-Note that we added chunk options to create a caption (`#| fig-cap: "Most common names of Zurich newborns in 2021-2024."`) and a label (`#| label: fig-label`). We can then refer to [@fig-names] in the text using `[@fig-label]`. Two other important options are `fig-height` and `fig-width` which allow us to specify the height and width of our figures. Here we have specified `fig-height: 5` which sets the height of the plot to 5 inches.
+Note that we can add chunk options to create a caption (`#| fig-cap: "Most common names of Zurich newborns in 2021-2024."`) and a label (`#| label: fig-label`). We can then refer to [@fig-names] in the text using `[@fig-label]`. Two other important options are `fig-height` and `fig-width` which allow us to specify the height and width of our figures. Here we have specified `fig-height: 5` which sets the height of the plot to 5 inches.
 
 ::: {.callout-note appearance="minimal"}
 **Optional exercises**
@@ -251,21 +223,24 @@ Note that we added chunk options to create a caption (`#| fig-cap: "Most common 
 -   Add a label to the previously generated table and refer to it in the text (beware that table labels start with `tab` instead of `fig`).
 :::
 
-### Multiple plots
-Quarto can also nicely display multiple plots simultaneously. For example, we may want to plot the occurrence of names over time in two plots. Here we choose Fabio, Samuel, and Gorka for one plot and Daniel and Sarah for the other. 
+### Plot your name
+
+Here we plot the frequency of our names over time. 
+
+::: {.callout-note appearance="minimal"}
+**Exercise**
+
+-   Add your name to the plot
+:::
+
 
 ```{r}
 #| label: fig-names-over-time
-#| layout-ncol: 2
 #| fig-cap: "Popularity of names over time."
-#| fig-subcap:
-#|   - "Fabio, Samuel, and Gorka"
-#|   - "Daniel and Sarah"
 #| message: false
-# first plot
 datclean |>
   group_by(sex, name, year) |>
-  filter(name %in% c("Fabio", "Samuel", "Gorka")) |>
+  filter(name %in% c("Fabio", "Daniel")) |>
   ggplot(aes(x = year, y = births, color = name)) +
   geom_line() +
   geom_point() +
@@ -274,25 +249,18 @@ datclean |>
   expand_limits(y = 0) +
   theme_minimal()
 
-# second plot
-datclean |>
-  group_by(sex, name, year) |>
-  filter(name %in% c("Daniel", "Sarah")) |>
-  ggplot(aes(x = year, y = births, color = name)) +
-  geom_line() +
-  geom_point() +
-  scale_color_viridis_d() +
-  labs(x = "Year", y = "Births", color = "") +
-  expand_limits(y = 0) +
-  theme_minimal()
 ```
-Since we specified the chunk option `layout-ncol: 2`, both plots are displayed next to each other. Additionally, caption and subcaptions can be specified with the `fig-cap` and the `fig-subcap` chunk options.
 
-::: {.callout-note appearance="minimal"}
-**Optional exercise**
+## Reproducibility
 
-Add a third plot with your own name!
-:::
+When creating dynamic reports, it is good practice to document the software versions and other parts of the computational environment. A simple yet effective way to document your computational environment is to include the output of `sessionInfo()`.
+
+```{r}
+#| fontsize: "small"
+sessionInfo()
+```
+
+## Bonus content
 
 ### Inline code
 
@@ -312,7 +280,7 @@ Note that, instead of performing computations within an inline code chunk, it is
 Compute the total number of births in the data set and then display it via an inline code chunk.
 :::
 
-## References
+### References
 
 In Quarto, it is also possible to include a bibliography file in BibTeX format (with .bib file extension) to automatically generate citations and a bibliography (<https://quarto.org/docs/authoring/citations.html>). This file has to be specified in the YAML header. In this hands-on, we have a `references.bib` file in the same directory as this .qmd file, so we specify:
 
@@ -354,22 +322,8 @@ To facilitate reference management in RStudio:
 Cite one of your favorite papers
 :::
 
-## Reproducibility
 
-When creating dynamic reports, it is good practice to document the software versions and other parts of the computational environment. A simple yet effective way to document your computational environment is to include the output of `sessionInfo()`.
-
-```{r}
-#| fontsize: "small"
-sessionInfo()
-```
-
-::: {.callout-note appearance="minimal"}
-**Optional exercise**
-
-Load another R package, re-render your report, and observe how the output of `sessionInfo()` changes
-:::
-
-# Practical tips
+### Practical tips
 
 This concludes a first introduction to dynamic reporting with Quarto. Here are some further tips
 
@@ -378,7 +332,7 @@ This concludes a first introduction to dynamic reporting with Quarto. Here are s
 -   Use relative paths so that others can reproduce your report
 -   Always add `sessionInfo()` or an equivalent at the bottom of your report to show details on the computational environment (e.g., package versions) used to generate your report <!-- - When sharing your analyses, include a README file that documents all steps necessary to create your report -->
 
-# Gallery (optional)
+### Gallery
 
 The are many examples of dynamically generated reports online. Explore the links below:
 
