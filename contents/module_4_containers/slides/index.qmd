@@ -183,11 +183,11 @@ Rocker images available at <https://rocker-project.org/>:
 
 **Post-hoc containerization:**
 
-![](img/post-hoc-containerization.png){fig-align="center" height="200"}
+![](img/post-hoc-containerization.png){fig-align="center" height="180"}
 
 **A priori containerization:**
 
-![](img/a-priori-containerization.png){fig-align="center" height="200"}
+![](img/a-priori-containerization.png){fig-align="center" height="180"}
 
 
 ------------------------------------------------------------------------
