@@ -3,13 +3,21 @@ title: "Sharing and Publishing"
 subtitle: "Workflows for dynamically generated reports"
 author: "Gorka Fraga González, Samuel Pawel, Peter Degen, Fabio Molo"
 preview-links: true
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.8em;
+        color: #29487d;
+      }
+      </style>
 format: 
   revealjs:
-    pdf: true
-    fig-cap-location: "margin"
     menu: true
-    logo: "images/uzh_logo_d_pos_web_assoc.jpg"
-    #theme: "custom-theme.scss"
+    pdf: true
+    smaller: true
+    auto-stretch: false
+    logo: "img/uzh_logo_d_pos_web_assoc.jpg"
     embed-resources: true
     progress: true
     slide-number: true
@@ -18,6 +26,7 @@ format:
       data-background-size: contain
       data-background-position: bottom
       data-background-opacity: "0.8"
+bibliography: references.bib
 ---
 
 ## Sharing scenarios
@@ -101,7 +110,7 @@ Required to make our resources `citable`
 ##### [GitLab Repository](https://gitlab.uzh.ch/crsuzh/nhb-replication)
 
 ::: {.column width="50%"}
-![](images/clipboard-4095247038.png){fig-align="left" width="491"}
+![](img/nhb-example.png){fig-align="left" width="491"}
 :::
 
 :::: {.column width="45%"}
@@ -119,7 +128,7 @@ The README.md file has a link to the Zenodo entry with a DOI and citation inform
 ##### [Zenodo entry](https://zenodo.org/records/13748512)
 
 ::: {.column width="50%"}
-![](images/clipboard-664766473.png){width="500px" fig-align="left"}
+![](img/zenodo-entry.png){width="500px" fig-align="left"}
 :::
 
 ::: {.column .font-small width="50%"}
@@ -139,8 +148,113 @@ The README.md file has a link to the Zenodo entry with a DOI and citation inform
 
 ### Publication workflow
 
-![](images/clipboard-3552195087.png)
+![](img/publication-workflow.png)
 
 ------------------------------------------------------------------------
 
-T h a n K - Y o U
+### Checklist for publishing a git repository
+
+::: incremental
+-  Add description in README (dates, project ID, funding, affiliations, DOI )
+-  If applicable, add the DOI of the publication in the description
+-  Create a release lock the version of a repository
+-  Rather than cite the URL, assign a DOI to the release, e.g., Zenodo upload
+-  Add a license file to explain reusability ( .g., GPL, MIT. Use a template)
+-  Indicate where the source data can be found
+:::
+
+------------------------------------------------------------------------
+
+## Putting it all together
+
+:::::: columns
+::: {.column width="55%"}
+![Modified from @Peikert2021](img/workflow-quarto.png)
+:::
+
+:::: {.column width="45%"}
+::: fragment
+Terminal
+
+``` {.bash style="font-size:0.85em"}
+# clone git repository
+git clone git@gitlab.uzh.ch:crsuzh/operra-reproducibility.git
+
+# enter project repository
+cd operra-reproducibility/content/module_3_workflow_management/demo/snakemake
+
+# run automated analyses
+snakemake --cores 1
+```
+
+→ `report.html`
+
+[https://gitlab.uzh.ch/crsuzh/operra-reproducibility](https://gitlab.uzh.ch/crsuzh/operra-reproducibility){style="font-size:0.65em"}
+:::
+::::
+::::::
+
+
+------------------------------------------------------------------------
+
+## Conclusions
+
+-   Dynamic reporting + version control + automation + containerization
+
+    -   improve **reproducibility**, **reuseability**, **collaboration**
+    -   lends research more **transparency**, **credibility**
+
+. . .
+
+-   There is a **learning curve** 😨, but ...
+
+    -   start simple and learn **step-by-step** 💡
+
+    -   tools are **constantly evolving** 🚀
+
+    -   invested learning time can **save you time** in the future ⏳
+
+    -   skills are **useful in/outside Academia** 💰 👨‍🔬
+
+------------------------------------------------------------------------
+
+## The Swiss Reproducibility Network Academy
+
+::::: columns
+::: {.column width="80%"}
+-   **Early career** researchers section of the SwissRN
+
+-   Goal 1: Connect young researchers interested in **reproducibility in Switzerland**
+
+-   Goal 2: Improve reproducibility of research in Switzerland
+
+-   How to join?
+
+    -   young researchers in **Switzerland** (working language: English)
+    -   **interest** in improving research and reproducibility
+    -   **every field** is welcome (diversity is the key!)
+
+-   More information: <https://www.swissrn.org/contents/academy/>
+:::
+
+::: {.column width="20%"}
+![](img/swissrn_logo.png)
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## CRS Primers
+
+:::::: columns
+::: {.column width="45%"}
+![<https://doi.org/10.5281/zenodo.15792190>](img/primer-make.png)
+:::
+
+:::: {.column width="45%"}
+![<https://doi.org/10.5281/zenodo.13757230>](img/primer-containers.png)
+::::
+:::::
+
+------------------------------------------------------------------------
+
