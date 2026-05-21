@@ -6,11 +6,11 @@ The website for this workshop is: <https://crsuzh.pages.uzh.ch/operra-reproducib
 
 ## Option 1: Open in GitHub Codespaces
 
-Open the whole project in RStudio Server in a GitHub Codespace:
+- Fork this repository to your account: <https://github.com/a1eksb/operra-reproducibility>
 
-<a href="https://codespaces.new/a1eksb/reproducability?quickstart=1&devcontainer_path=.devcontainer%2Frstudio%2Fdevcontainer.json" target="_blank" rel="noopener noreferrer">Open in RStudio Server</a> 
+- Create a new codespace: <https://github.com/codespaces/new>
 
-- Select this repository
+- Select the forked repository
 - Select `Dev container configuration` as "Operra - RStudio (project-wide)"
 - Create codespace (this may take several minutes)
 - Navigate to `Ports`and open the provided URL in a new tab
