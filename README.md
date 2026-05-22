@@ -1,6 +1,7 @@
 # SwissRN Workshop on Computational Reproducibility
 
 I made a change.
+I made another change.
 
 Part of the OPeR-RA workshop series.
 
