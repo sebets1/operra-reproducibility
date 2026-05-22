@@ -1,0 +1,11 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+title: "Title of the report" subtitle: "Subtitle" date: last-modified \#
+display the date of the last edit author: - name: "Author 1" orcid:
+1234-1234-1234-12345 affiliation: "University of Zurich" format: html:
+toc: true \# add a table of contents engine: jupyter
+

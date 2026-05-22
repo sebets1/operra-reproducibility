@@ -1,0 +1,55 @@
+digraph "flowchart" {
+rankdir=TB;
+v0 [shape=point,label="",fixedsize=true,width=0.1];
+v2 [label="PY_DERIVE"];
+v0 -> v2 [label="example_data.csv"];
+
+v1 [shape=point,label="",fixedsize=true,width=0.1];
+v2 [label="PY_DERIVE"];
+v1 -> v2 [label="1_derive.py"];
+
+v2 [label="PY_DERIVE"];
+v4 [label="R_SUMMARY"];
+v2 -> v4;
+
+v3 [shape=point,label="",fixedsize=true,width=0.1];
+v4 [label="R_SUMMARY"];
+v3 -> v4 [label="2_summary.R"];
+
+v4 [label="R_SUMMARY"];
+v6 [label="POLARS_PROCESS"];
+v4 -> v6;
+
+v2 [label="PY_DERIVE"];
+v6 [label="POLARS_PROCESS"];
+v2 -> v6 [label="1_derived.csv"];
+
+v5 [shape=point,label="",fixedsize=true,width=0.1];
+v6 [label="POLARS_PROCESS"];
+v5 -> v6 [label="3_polars_process.py"];
+
+v6 [label="POLARS_PROCESS"];
+v9 [label="FINAL_REPORT"];
+v6 -> v9;
+
+v7 [shape=point,label="",fixedsize=true,width=0.1];
+v9 [label="FINAL_REPORT"];
+v7 -> v9 [label="4_report.qmd"];
+
+v8 [shape=point,label="",fixedsize=true,width=0.1];
+v9 [label="FINAL_REPORT"];
+v8 -> v9 [label="example_data.csv"];
+
+v2 [label="PY_DERIVE"];
+v9 [label="FINAL_REPORT"];
+v2 -> v9 [label="1_derived.csv"];
+
+v4 [label="R_SUMMARY"];
+v9 [label="FINAL_REPORT"];
+v4 -> v9 [label="2_summary.txt"];
+
+v9 [label="FINAL_REPORT"];
+v10 [shape=point];
+v9 -> v10;
+
+}

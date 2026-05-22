@@ -1,0 +1,112 @@
+---
+title: "First Quarto Report"
+subtitle: "some Subtitle"
+date: last-modified # display the date of the last edit
+author: 
+  - name: "Seraina"
+    #orcid: 1234-1234-1234-12345
+    affiliation: "University of Zurich"
+format:
+  html:
+    toc: true # add a table of contents
+  pdf: #default
+    warning: false
+    message: false
+#execute:
+ # warning: false
+bibliography: contents/module_2_dynamic_reporting/demo_R/references.bib
+---
+
+## Quarto
+
+Quarto enablesabout Quarto see <https://quarto.org>.
+
+# This is a title
+
+Two stars will render a word **bold**.
+
+We can also create lists:
+
+-   Element 1
+-   Element 2
+
+A useful link is this [Markdown guide](https://quarto.org/docs/authoring/markdown-basics.html)
+
+> An impressive quote
+
+```{r}
+library("dplyr") # data wrangling
+library("ggplot2") # plotting
+library("kableExtra") # tables
+```
+
+```{r}
+url <- "https://data.stadt-zuerich.ch/dataset/bev_vornamen_baby_od3700/download/BEV370OD3700.csv"
+dat <- read.csv(url)
+datclean <- dat |>
+    rename(year = StichtagDatJahr,
+           name = Vorname,
+           sex = SexLang,
+           births = AnzGebuWir) |>
+    mutate(sex = ifelse(sex == "weiblich", "female", "male"))
+```
+
+```{r summarize data}
+summaries <- datclean |>
+  group_by(sex, year) |>
+  slice_max(order_by = births, n = 1) |>
+  arrange(-year)
+
+summaries |>
+  kable(caption = "Most common names of newborns in the city of Zurich by year and sex")
+```
+...
+
+```{R}
+datclean |>
+  filter(year > 2020) |>
+  group_by(sex, name) |>
+  summarise(births = sum(births)) |>
+  slice_max(order_by = births, n = 10) |>
+  ggplot(aes(x = reorder(name, births), y = births)) +
+  facet_wrap(~ sex, scales = "free") +
+  geom_bar(stat = "identity") +
+  labs(x = "Name", y = "Births", 
+       title = "") +
+  coord_flip() +
+  theme_minimal()
+```
+
+Plot the frequency of names over time.
+
+Name frequency is shown in @fig-name_graph.
+```{R fig-name_graph}
+datclean |>
+  group_by(sex, name, year) |>
+  filter(name %in% c("Fabio", "Daniel", "Seraina")) |>
+  ggplot(aes(x = year, y = births, color = name)) +
+  geom_line() +
+  geom_point() +
+  scale_color_viridis_d() +
+  labs(x = "Year", y = "Births", color = "") +
+  expand_limits(y = 0) +
+  theme_minimal()
+```
+
+
+# Reproducibility
+
+When creating dynamic reports, it is good practice to document the software versions and other parts of the computational environment. A simple yet effective way to document your computational environment is to include the output of sessionInfo().
+
+...
+
+```{r}
+sessionInfo()
+```
+
+We can then use [@Hofmann2023] (with parentheses) or @Hofmann2023 (without parentheses) to cite a bibliography item named Hofmann2023
+
+
+
+.
+
